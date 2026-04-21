@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — La Rana Dorada</title>
+  <meta name="description" content="La historia de La Rana Dorada, la primera cervecería artesanal de Panamá. Desde 2010, fermentando cultura con propósito y orgullo panameño.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Esencia card hover ── */
+    .esencia-card {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    .esencia-inner {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+    .esencia-card:hover .esencia-inner {
+      transform: scale(1.04);
+    }
+    .esencia-gradient {
+      position: absolute;
+      bottom: 0;
+      height: 60%;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      pointer-events: none;
+    }
+    .esencia-label {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body style="background:var(--dark);">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar navbar-expand-lg fixed-top"
+       style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
+         style="color:var(--cream); font-size:1.4rem; letter-spacing:-0.01em;">
+        La Rana Dorada
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMain"
+              style="color:var(--cream);">
+        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cervezas.html">Cervezas</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cerveceria.html">Cervecería</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk nav-link-active" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);" href="contacto.html">Contacto</a></li>
+        </ul>
+        <a href="cerveceria.html" class="font-grotesk"
+           style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(245,237,214,0.4);color:var(--cream);padding:8px 20px;border-radius:2px;white-space:nowrap;">
+          Tour Brewery →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ SECTION 1 — HERO ══ -->
+  <section style="background:var(--dark);position:relative;overflow:hidden;height:100vh;">
+    <!-- Photo placeholder -->
+    <div style="position:absolute;inset:0;background:#2C1F0A;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(245,237,214,0.15);font-family:'Space Grotesk',sans-serif;pointer-events:none;user-select:none;">
+      FOTO EQUIPO — 1920×1080
+    </div>
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:1;"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:240px;background:linear-gradient(transparent,var(--dark));z-index:1;"></div>
+
+    <div style="position:absolute;bottom:10vh;left:8%;z-index:2;">
+      <div class="d-flex gap-4 align-items-center mb-4">
+        <span class="font-grotesk" style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.5);">+15 AÑOS DE CULTURA</span>
+        <span style="color:var(--gold);font-size:8px;">●</span>
+        <span class="font-grotesk" style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.5);">13 LOCALES A NIVEL NACIONAL</span>
+      </div>
+      <h1 class="font-news fst-italic fw-bold text-uppercase"
+          style="font-size:clamp(48px,12vw,96px);color:var(--gold);line-height:0.95;margin:0;">
+        Somos una<br>gran familia
+      </h1>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2 — HISTORIA ══ -->
+  <section style="background:var(--cream);padding:100px 8%;">
+    <div class="row g-5 align-items-center" style="max-width:1400px;margin:0 auto;">
+
+      <!-- Image col -->
+      <div class="col-12 col-lg-5">
+        <div style="position:relative;">
+          <div style="width:100%;max-width:400px;height:480px;background:#D4C5A0;border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;color:#A89880;font-family:'Space Grotesk',sans-serif;">
+            FOTO CERVECERÍA
+          </div>
+          <div style="display:inline-block;background:var(--gold);color:var(--dark);padding:6px 16px;border-radius:2px;font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;margin-top:-16px;margin-left:16px;position:relative;z-index:1;">
+            EST. 2010
+          </div>
+        </div>
+      </div>
+
+      <!-- Text col -->
+      <div class="col-12 col-lg-7">
+        <div style="position:relative;">
+          <!-- Background number -->
+          <div aria-hidden="true" style="position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-family:'Newsreader',serif;font-weight:700;font-size:280px;color:rgba(28,26,23,0.05);pointer-events:none;user-select:none;line-height:1;">
+            15
+          </div>
+          <h2 class="font-news fst-italic fw-bold" style="font-size:44px;color:var(--dark);line-height:1.05;margin-bottom:24px;position:relative;">
+            Una historia que inspira
+          </h2>
+          <p class="font-jakarta" style="font-size:16px;color:#555;line-height:1.75;margin-bottom:16px;">
+            Hace más de una década, decidimos que Panamá merecía algo mejor. Algo hecho con las manos, con paciencia y con pasión. Así nació La Rana Dorada, en un pequeño pub en el Casco Antiguo, donde la historia comenzó a escribirse con lúpulo y cebada.
+          </p>
+          <p class="font-jakarta" style="font-size:16px;color:#555;line-height:1.75;margin-bottom:32px;">
+            No éramos los más grandes, pero teníamos la convicción de crear una cultura cervecera auténtica. Hoy, miramos hacia atrás y vemos una revolución líquida, construida pinta a pinta, junto a una comunidad que nos adoptó como su cerveza local.
+          </p>
+          <a href="cerveceria.html" class="font-grotesk fw-bold" style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px;">
+            Conoce el proceso →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3 — ESENCIA ══ -->
+  <section style="background:var(--dark);padding:100px 8%;">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="text-center mb-5">
+        <h2 class="font-news fst-italic fw-bold" style="font-size:52px;color:var(--cream);margin:0;line-height:1.1;">Nuestra esencia</h2>
+        <p class="font-grotesk" style="font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.35);margin:8px 0 0 0;">Lo que nos define</p>
+      </div>
+      <div class="row g-0">
+        <div class="col-12 col-md-4">
+          <div class="esencia-card">
+            <div class="esencia-inner" style="background:#2C1F0A;"></div>
+            <div class="esencia-gradient"></div>
+            <div class="esencia-label">
+              <div class="font-grotesk fw-bold" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Craft Beers</div>
+              <div class="font-grotesk" style="font-size:12px;color:rgba(245,237,214,0.55);margin-top:4px;">Elaboradas con ingredientes premium</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="esencia-card">
+            <div class="esencia-inner" style="background:#1A2C1A;"></div>
+            <div class="esencia-gradient"></div>
+            <div class="esencia-label">
+              <div class="font-grotesk fw-bold" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Alta Calidad</div>
+              <div class="font-grotesk" style="font-size:12px;color:rgba(245,237,214,0.55);margin-top:4px;">Proceso de fermentación supervisado</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="esencia-card">
+            <div class="esencia-inner" style="background:#2C1A08;"></div>
+            <div class="esencia-gradient"></div>
+            <div class="esencia-label">
+              <div class="font-grotesk fw-bold" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Nuestra Comunidad</div>
+              <div class="font-grotesk" style="font-size:12px;color:rgba(245,237,214,0.55);margin-top:4px;">13 locales · Panamá</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 4 — PROPÓSITO ══ -->
+  <section style="background:var(--dark);padding:100px 8%;position:relative;overflow:hidden;">
+    <!-- Background word -->
+    <div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Newsreader',serif;font-weight:700;font-size:300px;color:rgba(232,162,0,0.04);pointer-events:none;user-select:none;line-height:1;">
+      RANA
+    </div>
+    <div class="row g-5 align-items-center" style="max-width:1400px;margin:0 auto;position:relative;z-index:1;">
+
+      <div class="col-12 col-lg-5">
+        <div style="width:100%;max-width:480px;height:520px;background:#0A1A0A;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(245,237,214,0.3);font-family:'Space Grotesk',sans-serif;">
+          FOTO RANA DORADA
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <p class="font-grotesk" style="font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">
+          Parte de alta fermentación
+        </p>
+        <h2 class="font-news fst-italic fw-bold" style="font-size:52px;color:var(--gold);line-height:1;margin-bottom:20px;">
+          Cerveza con<br>propósito
+        </h2>
+        <p class="font-jakarta" style="font-size:18px;color:rgba(245,237,214,0.7);line-height:1.65;margin-bottom:32px;">
+          5 centavos de cada lata son destinados a proteger la Rana Dorada y su hábitat natural en Panamá.
+        </p>
+        <a href="blog.html" class="font-grotesk" style="font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.4);text-decoration:none;border-bottom:1px solid rgba(245,237,214,0.2);padding-bottom:2px;transition:all 0.2s ease;"
+           onmouseover="this.style.color='var(--gold)';this.style.borderBottomColor='var(--gold)';"
+           onmouseout="this.style.color='rgba(245,237,214,0.4)';this.style.borderBottomColor='rgba(245,237,214,0.2)';">
+          Leer sobre la fundación →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5 — FAMILIA CORPORATIVA ══ -->
+  <section style="background:var(--cream);padding:80px 8%;">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="text-center mb-5">
+        <p class="font-grotesk" style="font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(28,26,23,0.4);margin:0;">Parte de nuestra familia</p>
+      </div>
+      <div class="row g-0 text-center">
+        <div class="col-12 col-md-4" style="padding:40px 32px;border-right:1px solid rgba(28,26,23,0.1);">
+          <h3 class="font-news fst-italic fw-bold" style="font-size:28px;color:var(--dark);margin:0;">Pedro Mandinga</h3>
+          <p class="font-grotesk" style="font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,26,23,0.35);margin-top:6px;">Ron Artesanal</p>
+        </div>
+        <div class="col-12 col-md-4" style="padding:40px 32px;border-right:1px solid rgba(28,26,23,0.1);">
+          <h3 class="font-news fst-italic fw-bold" style="font-size:28px;color:var(--dark);margin:0;">Sinners Brewery</h3>
+          <p class="font-grotesk" style="font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,26,23,0.35);margin-top:6px;">Cervecería Aliada</p>
+        </div>
+        <div class="col-12 col-md-4" style="padding:40px 32px;">
+          <h3 class="font-news fst-italic fw-bold" style="font-size:28px;color:var(--dark);margin:0;">El Irish Pub</h3>
+          <p class="font-grotesk" style="font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,26,23,0.35);margin-top:6px;">Cadena de Pubs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--cream);margin-bottom:12px;">La Rana Dorada</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
+      </div>
+      <div class="col-6 col-md-2 offset-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="cervezas.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervezas</a>
+          <a href="cerveceria.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervecería</a>
+          <a href="locales.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Locales</a>
+          <a href="blog.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Blog</a>
+          <a href="contacto.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada.</p>
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

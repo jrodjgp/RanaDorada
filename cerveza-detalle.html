@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pils — La Rana Dorada</title>
+  <meta name="description" content="La PILS de La Rana Dorada. Czech Pilsner ganadora del Oro en la Copa Cervezas de América. Limpia, fresca y dorada. ABV 4.8%, IBU 25.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Stat bars that animate on load ── */
+    .stat-bar-track {
+      width: 100%;
+      height: 6px;
+      background: #D4C5A0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      width: 0%;
+      transition: width 1.2s ease;
+    }
+
+    /* ── Review carousel (CSS-only version) ── */
+    .review-slide { display: none; }
+    .review-slide.active { display: block; }
+
+    /* ── Suggested card hover ── */
+    .suggested-card {
+      border: 1px solid rgba(232,162,0,0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      background: var(--cream);
+    }
+    .suggested-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      border-color: var(--gold);
+    }
+  </style>
+</head>
+<body style="background:var(--cream);">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar navbar-expand-lg fixed-top"
+       style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
+         style="color:var(--cream); font-size:1.4rem; letter-spacing:-0.01em;">
+        La Rana Dorada
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMain"
+              style="color:var(--cream);">
+        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link font-grotesk nav-link-active" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;" href="cervezas.html">Cervezas</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cerveceria.html">Cervecería</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);" href="contacto.html">Contacto</a></li>
+        </ul>
+        <a href="cerveceria.html" class="font-grotesk"
+           style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(245,237,214,0.4);color:var(--cream);padding:8px 20px;border-radius:2px;white-space:nowrap;">
+          Tour Brewery →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ SECTION 1 — SPLIT HERO ══ -->
+  <div class="d-flex flex-column flex-md-row" style="height:100vh;min-height:600px;">
+
+    <!-- Left: can placeholder -->
+    <div style="width:45%;background:#B8860A;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;" class="w-100 w-md-45">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.12);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+        <div style="background:#9A6E04;width:280px;height:480px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 32px 72px rgba(0,0,0,0.4);">
+          <span class="font-grotesk" style="color:var(--cream);font-size:13px;opacity:0.6;">Pils CAN</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: info -->
+    <div style="flex:1;background:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:80px 8% 40px;overflow-y:auto;">
+      <!-- Breadcrumb -->
+      <a href="cervezas.html" class="font-grotesk" style="font-size:11px;color:#999;letter-spacing:0.1em;margin-bottom:32px;display:block;">
+        ← Cervezas &raquo; Pils
+      </a>
+
+      <!-- Award badge -->
+      <div class="d-inline-flex align-items-center gap-2 mb-3" style="background:rgba(232,162,0,0.08);border:1px solid rgba(232,162,0,0.3);border-radius:4px;padding:6px 14px;align-self:flex-start;">
+        <span style="font-size:1rem;">🥇</span>
+        <span class="font-grotesk" style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Oro · Copa Cervezas de América</span>
+      </div>
+
+      <!-- Style tag -->
+      <span style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--dark);border:1px solid var(--dark);padding:4px 10px;margin-bottom:16px;align-self:flex-start;">
+        Czech Pilsner
+      </span>
+
+      <h1 class="font-news fw-bold" style="font-size:clamp(48px,6vw,80px);color:var(--dark);line-height:1;margin-bottom:8px;">Pils</h1>
+      <p class="font-grotesk" style="font-size:20px;font-weight:500;color:var(--gold);margin-bottom:20px;">4.8% ABV</p>
+      <p class="font-jakarta fst-italic" style="font-size:16px;color:#555;line-height:1.65;max-width:440px;margin-bottom:32px;">
+        limpio · fresco · dorado
+      </p>
+      <p class="font-grotesk fw-bold" style="font-size:32px;color:var(--dark);margin-bottom:28px;">$2.20</p>
+
+      <!-- Qty selector (pure CSS/HTML, no JS) -->
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="display:flex;align-items:center;gap:8px;border:1px solid #ccc;border-radius:2px;overflow:hidden;">
+          <button class="font-grotesk fw-bold" style="padding:8px 16px;border:none;background:transparent;font-size:18px;cursor:pointer;color:var(--dark);" onclick="changeQty(-1)">−</button>
+          <span id="qty-display" class="font-grotesk fw-bold" style="font-size:18px;color:var(--dark);min-width:28px;text-align:center;">1</span>
+          <button class="font-grotesk fw-bold" style="padding:8px 16px;border:none;background:transparent;font-size:18px;cursor:pointer;color:var(--dark);" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+
+      <a href="contacto.html" class="btn-gold d-block text-center mb-3" style="max-width:320px;">Agregar al Carrito</a>
+      <a href="cervezas.html" class="font-grotesk" style="font-size:13px;color:#999;letter-spacing:0.05em;">← Volver a Cervezas</a>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2 — BREW FACTS ══ -->
+  <div style="background:var(--cream);padding:80px 10%;border-top:1px solid rgba(28,26,23,0.1);">
+    <div class="d-flex flex-wrap gap-5">
+
+      <!-- Data table -->
+      <div style="flex:1;min-width:280px;">
+        <h2 class="font-news fw-bold" style="font-size:36px;color:var(--dark);margin-bottom:32px;">Datos del Estilo</h2>
+        <div>
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Estilo</span>
+            <span class="font-jakarta" style="font-size:16px;color:var(--dark);">Czech Pilsner</span>
+          </div>
+          <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">ABV</span>
+            <span class="font-jakarta" style="font-size:16px;color:var(--dark);">4.8%</span>
+          </div>
+          <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">IBU</span>
+            <span class="font-jakarta" style="font-size:16px;color:var(--dark);">25</span>
+          </div>
+          <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Categoría</span>
+            <span class="font-jakarta" style="font-size:16px;color:var(--dark);text-transform:capitalize;">Lagers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile bars -->
+      <div style="flex:1;min-width:280px;">
+        <h2 class="font-news fw-bold" style="font-size:36px;color:var(--dark);margin-bottom:32px;">Perfil</h2>
+
+        <div style="margin-bottom:28px;">
+          <div class="d-flex justify-content-between mb-2">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Amargor (IBU)</span>
+            <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--dark);">25</span>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="bar-ibu" style="width:0%;"></div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:28px;">
+          <div class="d-flex justify-content-between mb-2">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Alcohol (ABV)</span>
+            <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--dark);">4.8%</span>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="bar-abv" style="width:0%;"></div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center py-4" style="border-top:1px solid rgba(28,26,23,0.1);margin-top:8px;">
+          <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Disponibilidad</span>
+          <span class="font-jakarta" style="font-size:16px;color:var(--dark);">Todo el año</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3 — REVIEWS ══ -->
+  <div style="background:var(--dark);padding:80px 10%;">
+    <div class="d-flex flex-wrap gap-5 align-items-center">
+
+      <div style="flex:0 0 auto;width:40%;min-width:240px;">
+        <h2 class="font-news fw-bold text-uppercase" style="font-size:clamp(36px,5vw,56px);color:var(--cream);line-height:1;margin-bottom:32px;">
+          Lo que Dicen
+        </h2>
+        <div class="d-flex gap-3">
+          <button class="review-arrow" onclick="changeReview(-1)" aria-label="Reseña anterior">←</button>
+          <button class="review-arrow" onclick="changeReview(1)" aria-label="Siguiente reseña">→</button>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:240px;" id="review-content">
+        <p class="font-grotesk fw-bold" style="font-size:14px;letter-spacing:0.1em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;" id="review-name">
+          Carlos M.
+        </p>
+        <p class="font-jakarta fst-italic" style="font-size:20px;color:var(--cream);line-height:1.6;" id="review-text">
+          "La mejor cerveza artesanal de Panamá. Siempre fresca, siempre perfecta."
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SECTION 4 — SUGGESTIONS ══ -->
+  <div style="background:var(--cream);padding:80px 10%;">
+    <h2 class="font-news fw-bold" style="font-size:36px;color:var(--dark);margin-bottom:40px;">También te puede gustar</h2>
+    <div class="row g-4">
+
+      <!-- Blanche -->
+      <div class="col-12 col-md-6">
+        <a href="cerveza-detalle.html" class="suggested-card d-block text-decoration-none">
+          <div style="height:200px;background:#C49A00;display:flex;align-items:center;justify-content:center;">
+            <div style="background:#A87E00;width:120px;height:200px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+              <span class="font-grotesk" style="color:var(--cream);font-size:10px;opacity:0.6;">Blanche CAN</span>
+            </div>
+          </div>
+          <div style="padding:20px;">
+            <h3 class="font-news fw-bold" style="font-size:24px;color:var(--dark);margin-bottom:4px;">Blanche</h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="font-grotesk" style="font-size:11px;color:#888;letter-spacing:0.1em;">Witbier</span>
+              <span class="font-grotesk fw-bold" style="font-size:16px;color:var(--gold);">$2.20</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- IPA -->
+      <div class="col-12 col-md-6">
+        <a href="cerveza-detalle.html" class="suggested-card d-block text-decoration-none">
+          <div style="height:200px;background:#1A3A0A;display:flex;align-items:center;justify-content:center;">
+            <div style="background:#0E2A04;width:120px;height:200px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+              <span class="font-grotesk" style="color:var(--cream);font-size:10px;opacity:0.6;">IPA CAN</span>
+            </div>
+          </div>
+          <div style="padding:20px;">
+            <h3 class="font-news fw-bold" style="font-size:24px;color:var(--dark);margin-bottom:4px;">IPA</h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="font-grotesk" style="font-size:11px;color:#888;letter-spacing:0.1em;">American IPA</span>
+              <span class="font-grotesk fw-bold" style="font-size:16px;color:var(--gold);">$2.20</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--cream);margin-bottom:12px;">La Rana Dorada</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
+      </div>
+      <div class="col-6 col-md-2 offset-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="cervezas.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervezas</a>
+          <a href="nosotros.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Nosotros</a>
+          <a href="locales.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Locales</a>
+          <a href="contacto.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada.</p>
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Animate stat bars on page load
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('bar-ibu').style.width = '25%';
+      }, 300);
+      setTimeout(function() {
+        document.getElementById('bar-abv').style.width = '48%';
+      }, 500);
+    });
+
+    // Qty counter
+    var qty = 1;
+    function changeQty(delta) {
+      qty = Math.max(1, qty + delta);
+      document.getElementById('qty-display').textContent = qty;
+    }
+
+    // Review rotator
+    var reviews = [
+      { name: 'Carlos M.', text: 'La mejor cerveza artesanal de Panamá. Siempre fresca, siempre perfecta.' },
+      { name: 'Andrea R.', text: 'Me sorprendió la complejidad del sabor. La recomiendo sin dudar.' },
+      { name: 'Luis T.',   text: 'Perfecta para compartir. Se convirtió en mi favorita del happy hour.' },
+      { name: 'María F.', text: 'Increíble equilibrio. Nunca pensé que una cerveza local fuera tan buena.' },
+      { name: 'Roberto S.', text: 'El packaging con las ranas ya me ganó. El sabor me enamoró.' },
+    ];
+    var reviewIdx = 0;
+
+    function changeReview(dir) {
+      var content = document.getElementById('review-content');
+      content.style.opacity = '0';
+      content.style.transition = 'opacity 0.15s ease';
+      setTimeout(function() {
+        reviewIdx = (reviewIdx + dir + reviews.length) % reviews.length;
+        document.getElementById('review-name').textContent = reviews[reviewIdx].name;
+        document.getElementById('review-text').textContent = '"' + reviews[reviewIdx].text + '"';
+        content.style.opacity = '1';
+      }, 150);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cervecería y Destilería — La Rana Dorada</title>
+  <meta name="description" content="Reserva tu lugar en el Tour Cervecería y Destilería de La Rana Dorada. Viernes y sábados, grupos de máximo 10 personas. Degustación incluida.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hero background placeholder */
+    .brew-hero {
+      position: relative;
+      overflow: hidden;
+      height: 100vh;
+      background: linear-gradient(160deg, #2C1F0A 0%, #1A1008 100%);
+    }
+    .brew-hero-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      color: rgba(245,237,214,0.2);
+      pointer-events: none;
+      user-select: none;
+    }
+    .brew-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1;
+    }
+    .brew-hero-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      background: linear-gradient(transparent, #1C1A17);
+      z-index: 1;
+    }
+
+    /* Ticket card */
+    .ticket-card {
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      background: var(--dark);
+      border: 1px solid rgba(232,162,0,0.2);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .ticket-left {
+      flex: 1;
+      background: #2C1F0A;
+      padding: 32px 28px;
+    }
+    .ticket-right {
+      width: 160px;
+      background: #251A0A;
+      border-left: 2px dashed rgba(245,237,214,0.12);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      align-items: center;
+    }
+    .ticket-row.bordered {
+      border-bottom: 0.5px solid rgba(245,237,214,0.1);
+    }
+    .barcode-cols {
+      display: flex;
+      gap: 2px;
+      align-items: flex-end;
+      height: 48px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .barcode-col {
+      background: rgba(245,237,214,0.5);
+      border-radius: 1px;
+    }
+
+    /* Steps visibility */
+    .step { display: none; }
+    .step.active { display: block; }
+
+    /* Progress bar */
+    .progress-bar-anim {
+      height: 2px;
+      background: rgba(245,237,214,0.1);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 1px;
+      width: 0%;
+      transition: width 1.2s ease;
+    }
+
+    /* Day/Time buttons */
+    .day-btn, .time-btn {
+      flex: 1;
+      padding: 12px 14px;
+      background: rgba(245,237,214,0.06);
+      border: 0.5px solid rgba(245,237,214,0.18);
+      border-radius: 6px;
+      color: var(--cream);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .day-btn.sel, .time-btn.sel {
+      background: rgba(232,162,0,0.15);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Qty control */
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,237,214,0.06);
+      border: 0.5px solid rgba(245,237,214,0.18);
+      border-radius: 6px;
+      padding: 8px 12px;
+    }
+    .qty-btn {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+    .qty-val {
+      flex: 1;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+  </style>
+</head>
+<body style="background:var(--dark);">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar navbar-expand-lg fixed-top"
+       style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
+         style="color:var(--cream); font-size:1.4rem; letter-spacing:-0.01em;">
+        La Rana Dorada
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMain"
+              style="color:var(--cream);">
+        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cervezas.html">Cervezas</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk nav-link-active" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;" href="cerveceria.html">Cervecería</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);" href="contacto.html">Contacto</a></li>
+        </ul>
+        <a href="cerveceria.html" class="font-grotesk"
+           style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(232,162,0,0.5);color:var(--gold);padding:8px 20px;border-radius:2px;white-space:nowrap;">
+          Tour Brewery →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="brew-hero">
+    <div class="brew-hero-placeholder">FOTO CERVECERÍA — 1920×1080</div>
+    <div class="brew-hero-overlay"></div>
+    <div class="brew-hero-fade"></div>
+    <div class="position-absolute" style="bottom:0;left:0;right:0;z-index:2;padding-bottom:80px;padding-left:8%;">
+      <div style="width:60px;height:2px;background:var(--gold);margin-bottom:24px;"></div>
+      <h1 class="font-news fst-italic fw-bold" style="font-size:clamp(40px,8vw,72px);color:var(--cream);line-height:1;margin-bottom:8px;">
+        Cervecería<br>y Destilería
+      </h1>
+      <p class="font-grotesk" style="font-size:12px;color:rgba(245,237,214,0.55);letter-spacing:0.12em;text-transform:uppercase;max-width:500px;">
+        Viernes y Sábados · Grupos de máx. 10 personas · Degustación incluida
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING FORM ══ -->
+  <section style="background:var(--dark);padding:80px 24px;">
+    <div style="max-width:680px;margin:0 auto;">
+
+      <!-- Header -->
+      <div class="text-center mb-5">
+        <span class="font-grotesk d-block" style="font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">
+          Reserva tu lugar
+        </span>
+        <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(32px,5vw,48px);color:var(--cream);line-height:1.1;margin-bottom:16px;">
+          Tour Cervecería<br>y Destilería
+        </h2>
+        <p class="font-grotesk" style="font-size:13px;color:rgba(245,237,214,0.4);letter-spacing:0.08em;">
+          Una experiencia de 2 horas guiada por nuestros cerveceros expertos.
+        </p>
+      </div>
+
+      <!-- STEP 1: FORM -->
+      <div id="step1" class="step active">
+        <div class="row g-3 mb-4">
+
+          <!-- Nombre -->
+          <div class="col-12 col-md-6">
+            <label class="font-grotesk d-block mb-2" style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.35);">Nombre Completo</label>
+            <input type="text" id="name-input" class="brew-input" placeholder="Tu nombre">
+          </div>
+
+          <!-- Día -->
+          <div class="col-12 col-md-6">
+            <label class="font-grotesk d-block mb-2" style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.35);">Día</label>
+            <div class="d-flex gap-2">
+              <button class="day-btn" id="btn-viernes" onclick="selectDay('viernes')">Viernes</button>
+              <button class="day-btn" id="btn-sabado"  onclick="selectDay('sabado')">Sábado</button>
+            </div>
+          </div>
+
+          <!-- Hora -->
+          <div class="col-12 col-md-6">
+            <label class="font-grotesk d-block mb-2" style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.35);">Hora</label>
+            <div class="d-flex gap-2">
+              <button class="time-btn" id="btn-2pm" onclick="selectTime('2:00 PM')">2:00 PM</button>
+              <button class="time-btn" id="btn-4pm" onclick="selectTime('4:00 PM')">4:00 PM</button>
+              <button class="time-btn" id="btn-6pm" onclick="selectTime('6:00 PM')">6:00 PM</button>
+            </div>
+          </div>
+
+          <!-- Invitados -->
+          <div class="col-12 col-md-6">
+            <label class="font-grotesk d-block mb-2" style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.35);">Invitados (máx 10)</label>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeGuests(-1)">−</button>
+              <span class="qty-val" id="guests-val">1</span>
+              <button class="qty-btn" onclick="changeGuests(1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="brew-submit-btn" onclick="handleSubmit()">Reservar Tour →</button>
+      </div>
+
+      <!-- STEP 2: PRINTING -->
+      <div id="step2" class="step" style="padding:60px 0;text-align:center;">
+        <span class="font-grotesk d-block" style="font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:20px;">
+          Imprimiendo tu ticket...
+        </span>
+        <div class="progress-bar-anim">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: TICKET -->
+      <div id="step3" class="step">
+        <div class="ticket-card">
+          <div class="ticket-left">
+            <span class="font-grotesk d-block" style="font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">
+              La Rana Dorada · Tour
+            </span>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:32px;color:var(--cream);line-height:1.2;margin-bottom:20px;">
+              Tour Cervecería<br>y Destilería
+            </h2>
+            <div>
+              <div class="ticket-row bordered">
+                <span class="font-grotesk" style="font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,237,214,0.3);">Pasajero</span>
+                <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--cream);" id="t-name">—</span>
+              </div>
+              <div class="ticket-row bordered">
+                <span class="font-grotesk" style="font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,237,214,0.3);">Día</span>
+                <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--cream);" id="t-day">—</span>
+              </div>
+              <div class="ticket-row bordered">
+                <span class="font-grotesk" style="font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,237,214,0.3);">Hora</span>
+                <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--cream);" id="t-time">—</span>
+              </div>
+              <div class="ticket-row">
+                <span class="font-grotesk" style="font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,237,214,0.3);">Invitados</span>
+                <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--cream);" id="t-guests">—</span>
+              </div>
+            </div>
+            <div style="margin-top:16px;padding-top:16px;border-top:0.5px solid rgba(245,237,214,0.1);font-family:'Newsreader',serif;font-style:italic;font-size:11px;color:rgba(245,237,214,0.3);" id="t-admit">
+              Admit 1
+            </div>
+          </div>
+          <div class="ticket-right">
+            <div style="width:100%;">
+              <div class="barcode-cols">
+                <div class="barcode-col" style="width:1px;height:28px;"></div>
+                <div class="barcode-col" style="width:2px;height:32px;"></div>
+                <div class="barcode-col" style="width:1px;height:24px;"></div>
+                <div class="barcode-col" style="width:3px;height:40px;"></div>
+                <div class="barcode-col" style="width:1px;height:26px;"></div>
+                <div class="barcode-col" style="width:2px;height:34px;"></div>
+                <div class="barcode-col" style="width:3px;height:30px;"></div>
+                <div class="barcode-col" style="width:1px;height:25px;"></div>
+                <div class="barcode-col" style="width:2px;height:38px;"></div>
+                <div class="barcode-col" style="width:1px;height:29px;"></div>
+                <div class="barcode-col" style="width:2px;height:31px;"></div>
+                <div class="barcode-col" style="width:1px;height:27px;"></div>
+                <div class="barcode-col" style="width:3px;height:36px;"></div>
+                <div class="barcode-col" style="width:2px;height:33px;"></div>
+                <div class="barcode-col" style="width:1px;height:24px;"></div>
+                <div class="barcode-col" style="width:2px;height:37px;"></div>
+                <div class="barcode-col" style="width:3px;height:35px;"></div>
+                <div class="barcode-col" style="width:1px;height:28px;"></div>
+                <div class="barcode-col" style="width:2px;height:32px;"></div>
+                <div class="barcode-col" style="width:1px;height:26px;"></div>
+              </div>
+              <span class="font-grotesk d-block text-center" style="font-size:8px;color:rgba(245,237,214,0.25);line-height:1.4;" id="t-id">TKT-0000-000</span>
+            </div>
+            <div class="text-center">
+              <div class="font-grotesk" style="font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:4px;">Total Fare</div>
+              <div class="font-grotesk fw-bold" style="font-size:28px;color:var(--gold);" id="t-price">$15.00</div>
+              <div class="font-grotesk" style="font-size:9px;color:rgba(245,237,214,0.25);margin-bottom:12px;">USD</div>
+              <div style="width:80px;height:80px;background:rgba(245,237,214,0.08);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(245,237,214,0.2);font-family:'Space Grotesk',sans-serif;font-weight:500;margin:0 auto;">QR</div>
+            </div>
+            <div style="font-family:'Georgia',serif;font-size:20px;color:rgba(245,237,214,0.15);">✂</div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <button onclick="resetForm()"
+            style="background:rgba(232,162,0,0.15);border:0.5px solid var(--gold);color:var(--gold);border-radius:6px;padding:12px 28px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.2s ease;"
+            onmouseover="this.style.background='var(--gold)';this.style.color='var(--dark)';"
+            onmouseout="this.style.background='rgba(232,162,0,0.15)';this.style.color='var(--gold)';">
+            Hacer otra reserva
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--cream);margin-bottom:12px;">La Rana Dorada</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
+      </div>
+      <div class="col-6 col-md-2 offset-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="cervezas.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervezas</a>
+          <a href="nosotros.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Nosotros</a>
+          <a href="locales.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Locales</a>
+          <a href="contacto.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada.</p>
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var selectedDay = null;
+    var selectedTime = null;
+    var guestCount = 1;
+    var PRICE_PER_PERSON = 15;
+
+    function selectDay(day) {
+      selectedDay = day;
+      document.getElementById('btn-viernes').classList.toggle('sel', day === 'viernes');
+      document.getElementById('btn-sabado').classList.toggle('sel', day === 'sabado');
+    }
+    function selectTime(time) {
+      selectedTime = time;
+      document.getElementById('btn-2pm').classList.toggle('sel', time === '2:00 PM');
+      document.getElementById('btn-4pm').classList.toggle('sel', time === '4:00 PM');
+      document.getElementById('btn-6pm').classList.toggle('sel', time === '6:00 PM');
+    }
+    function changeGuests(delta) {
+      guestCount = Math.max(1, Math.min(10, guestCount + delta));
+      document.getElementById('guests-val').textContent = guestCount;
+    }
+
+    function handleSubmit() {
+      var name = document.getElementById('name-input').value.trim();
+      if (!name) { alert('Por favor ingresa tu nombre'); return; }
+      if (!selectedDay || !selectedTime) { alert('Por favor selecciona día y hora'); return; }
+
+      // Go to step 2
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step2').classList.add('active');
+
+      setTimeout(function() {
+        document.getElementById('progress-fill').style.width = '100%';
+      }, 80);
+
+      setTimeout(function() {
+        showTicket(name);
+      }, 1500);
+    }
+
+    function showTicket(name) {
+      document.getElementById('step2').classList.remove('active');
+      document.getElementById('step3').classList.add('active');
+
+      document.getElementById('t-name').textContent = name;
+      document.getElementById('t-day').textContent = selectedDay === 'viernes' ? 'Viernes' : 'Sábado';
+      document.getElementById('t-time').textContent = selectedTime;
+      document.getElementById('t-guests').textContent = guestCount + ' ' + (guestCount === 1 ? 'persona' : 'personas');
+      document.getElementById('t-admit').textContent = 'Admit ' + guestCount;
+      document.getElementById('t-price').textContent = '$' + (guestCount * PRICE_PER_PERSON).toFixed(2);
+      document.getElementById('t-id').textContent = 'TKT-' + String(Math.floor(Math.random()*10000)).padStart(4,'0') + '-' + String(Math.floor(Math.random()*1000)).padStart(3,'0');
+    }
+
+    function resetForm() {
+      selectedDay = null; selectedTime = null; guestCount = 1;
+      document.getElementById('name-input').value = '';
+      document.getElementById('guests-val').textContent = '1';
+      ['btn-viernes','btn-sabado','btn-2pm','btn-4pm','btn-6pm'].forEach(function(id) {
+        document.getElementById(id).classList.remove('sel');
+      });
+      document.getElementById('progress-fill').style.width = '0%';
+      document.getElementById('step3').classList.remove('active');
+      document.getElementById('step1').classList.add('active');
+    }
+  </script>
+</body>
+</html>

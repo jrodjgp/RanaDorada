@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — La Rana Dorada</title>
+  <meta name="description" content="Historias, logros y vida dentro de La Rana Dorada. La PILS conquista el Oro en la Copa Cervezas de América, el primer whisky single malt panameño y más.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Blog card hover */
+    .blog-card {
+      transition: transform 0.2s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Line clamp for secondary cards */
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body style="background:var(--dark);">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar navbar-expand-lg fixed-top"
+       style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
+         style="color:var(--cream); font-size:1.4rem; letter-spacing:-0.01em;">
+        La Rana Dorada
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMain"
+              style="color:var(--cream);">
+        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cervezas.html">Cervezas</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cerveceria.html">Cervecería</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk nav-link-active" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);" href="contacto.html">Contacto</a></li>
+        </ul>
+        <a href="cerveceria.html" class="font-grotesk"
+           style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(245,237,214,0.4);color:var(--cream);padding:8px 20px;border-radius:2px;white-space:nowrap;">
+          Tour Brewery →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HEADER ══ -->
+  <header style="background:var(--dark);padding:100px 8% 56px;">
+    <span class="label-tag">HISTORIAS</span>
+    <h1 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,8vw,72px);color:var(--cream);line-height:1;margin-top:16px;margin-bottom:12px;">
+      Del salón a la copa.
+    </h1>
+    <p class="font-jakarta" style="font-size:16px;color:rgba(245,237,214,0.4);">
+      Noticias, logros y vida dentro de La Rana Dorada.
+    </p>
+  </header>
+
+  <!-- ══ BLOG CONTENT ══ -->
+  <main style="background:var(--cream);padding:64px 8%;">
+
+    <!-- ── CARD PRINCIPAL (PILS → ORO) ── -->
+    <article class="blog-card">
+      <div class="row g-0 align-items-stretch" style="border:0.5px solid rgba(28,26,23,0.1);border-radius:8px;overflow:hidden;">
+
+        <!-- Imagen placeholder izquierda -->
+        <div class="col-12 col-lg-6">
+          <div style="height:400px;background:#2A3A1A;display:flex;align-items:center;justify-content:center;">
+            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.25);">FOTO GALARDÓN</span>
+          </div>
+        </div>
+
+        <!-- Texto derecha -->
+        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center" style="padding:48px;">
+          <span class="label-tag" style="margin-bottom:12px;">GALARDONES</span>
+          <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(28px,3.5vw,42px);color:var(--dark);line-height:1.15;margin-bottom:16px;">
+            La PILS de La Rana Dorada conquista el ORO en la Copa Cervezas de América
+          </h2>
+          <p class="font-jakarta" style="font-size:15px;color:rgba(28,26,23,0.6);margin-top:0;line-height:1.7;">
+            En la más reciente edición de la Copa Cervezas de América, la competencia cervecera más importante del continente, nuestra PILS se coronó con medalla de Oro en la categoría de Lagers. Un reconocimiento que confirma lo que cada panameño sabe de sobra: la buena cerveza también nace en el istmo.
+          </p>
+          <p class="font-grotesk" style="font-size:9px;color:rgba(28,26,23,0.35);margin-top:24px;letter-spacing:0.12em;">COPA CERVEZAS DE AMÉRICA · 2024</p>
+          <a href="#" class="font-grotesk" style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dark);border-bottom:1px solid var(--gold);padding-bottom:2px;display:inline-block;margin-top:16px;">
+            Leer historia →
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTÍCULO COMPLETO: PILS ORO ── -->
+    <div style="max-width:760px;margin:64px auto 0;padding-bottom:64px;border-bottom:1px solid rgba(28,26,23,0.08);">
+      <span class="label-tag" style="margin-bottom:16px;">GALARDONES · COPA CERVEZAS DE AMÉRICA · 2024</span>
+      <h3 class="font-news fst-italic fw-bold" style="font-size:32px;color:var(--dark);line-height:1.2;margin-bottom:24px;">
+        La historia detrás del Oro
+      </h3>
+      <div class="font-jakarta" style="font-size:16px;color:#444;line-height:1.8;">
+        <p style="margin-bottom:20px;">La Copa Cervezas de América es, sin duda, el certamen cervecero más exigente del continente. Cada año reúne a cientos de cervecerías de más de veinte países, y los jueces —maestros cerveceros, sommeliers y críticos especializados— evalúan ciegamente cada muestra bajo criterios de estilo, aroma, sabor, apariencia y retrogusto.</p>
+        <p style="margin-bottom:20px;">Nuestra <strong>PILS</strong>, el Czech Pilsner que elaboramos desde los primeros años de La Rana Dorada, fue presentada en la categoría Lagers bajo fermentación baja. Se fermentó a bajas temperaturas durante varias semanas, siguiendo el método tradicional checo, con lúpulo Saaz de importación y malta pilsen de primera calidad cultivada en el continente.</p>
+        <p style="margin-bottom:20px;">Al anuncio del Oro, el equipo de maestros cerveceros celebró con las mismas cervezas que habían presentado. "No lo hicimos para ganar un premio", dijo nuestro maestro cervecero. "Lo hicimos porque queríamos que un panameño pudiera tomar la mejor pils de América, y que ese panameño estuviera en su propia tierra."</p>
+        <p style="margin-bottom:20px;">La medalla de Oro en Copa Cervezas de América posiciona a La Rana Dorada como la primera cervecería centroamericana en obtener el máximo galardón en esta categoría. Es un reconocimiento para el país entero, y para todos los que han confiado en la cerveza artesanal panameña desde 2010.</p>
+        <p>¡Salud, Panamá. Esta pils siempre fue tuya.</p>
+      </div>
+    </div>
+
+    <!-- ── GRID SECUNDARIO (4 CARDS 2×2) ── -->
+    <div class="row g-4 mt-4">
+
+      <!-- [2] Whisky -->
+      <div class="col-12 col-md-6">
+        <article class="blog-card h-100">
+          <!-- Imagen placeholder -->
+          <div style="height:220px;background:#3A2A1A;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+            <span class="font-grotesk" style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.25);">FOTO WHISKY</span>
+          </div>
+          <span class="label-tag" style="margin-top:20px;margin-bottom:8px;">INNOVACIÓN</span>
+          <h3 class="font-news fst-italic fw-bold" style="font-size:22px;color:var(--dark);line-height:1.2;margin-bottom:8px;">
+            El primer single malt whisky panameño
+          </h3>
+          <p class="font-jakarta line-clamp-3" style="font-size:13px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.65;">
+            Después de 11 años produciendo cerveza artesanal, hoy traemos el PRIMER SINGLE MALT 10 años de reposo en barricas de roble panameño. Un destilado que lleva el alma del trópico en cada sorbo.
+          </p>
+          <a href="#" class="font-grotesk d-block" style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:16px;">Leer →</a>
+        </article>
+      </div>
+
+      <!-- [3] Ranita -->
+      <div class="col-12 col-md-6">
+        <article class="blog-card h-100">
+          <div style="height:220px;background:#1A3A2A;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+            <span class="font-grotesk" style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.25);">FOTO CONSERVACIÓN</span>
+          </div>
+          <span class="label-tag" style="margin-top:20px;margin-bottom:8px;">COMUNIDAD</span>
+          <h3 class="font-news fst-italic fw-bold" style="font-size:22px;color:var(--dark);line-height:1.2;margin-bottom:8px;">
+            Donación para la conservación de la Ranita Dorada
+          </h3>
+          <p class="font-jakarta line-clamp-3" style="font-size:13px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.65;">
+            El martes 12 de enero fue una jornada muy especial — todas las ventas de ese día en La Rana Dorada fueron destinadas íntegramente a la fundación que protege el hábitat de la Atelopus varius en las montañas chiriquíes.
+          </p>
+          <a href="#" class="font-grotesk d-block" style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:16px;">Leer →</a>
+        </article>
+      </div>
+
+      <!-- [4] Chocolate -->
+      <div class="col-12 col-md-6">
+        <article class="blog-card h-100">
+          <div style="height:220px;background:#2A1A0A;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+            <span class="font-grotesk" style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.25);">FOTO CHOCOLATE</span>
+          </div>
+          <span class="label-tag" style="margin-top:20px;margin-bottom:8px;">PRODUCTOS</span>
+          <h3 class="font-news fst-italic fw-bold" style="font-size:22px;color:var(--dark);line-height:1.2;margin-bottom:8px;">
+            El chocolate de La Rana Dorada
+          </h3>
+          <p class="font-jakarta line-clamp-3" style="font-size:13px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.65;">
+            El aroma a lúpulo nos da la bienvenida a esta barra de chocolate exótica, invitándonos a descubrir la colaboración que hicimos con productores de cacao ngäbe del Caribe panameño. Amargor elegante, notas de malta y cacao 70%.
+          </p>
+          <a href="#" class="font-grotesk d-block" style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:16px;">Leer →</a>
+        </article>
+      </div>
+
+      <!-- [5] Copa -->
+      <div class="col-12 col-md-6">
+        <article class="blog-card h-100">
+          <div style="height:220px;background:#1A1A3A;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+            <span class="font-grotesk" style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.25);">FOTO COPA</span>
+          </div>
+          <span class="label-tag" style="margin-top:20px;margin-bottom:8px;">GALARDONES</span>
+          <h3 class="font-news fst-italic fw-bold" style="font-size:22px;color:var(--dark);line-height:1.2;margin-bottom:8px;">
+            Dentro de la Copa Cervezas de América
+          </h3>
+          <p class="font-jakarta line-clamp-3" style="font-size:13px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.65;">
+            En la competencia internacional donde participan cervezas de todo el continente, Panamá por primera vez sube al podio máximo. Un viaje entre fermentadores, jueces y el nervio de esperar el veredicto de los mejores paladares de América.
+          </p>
+          <a href="#" class="font-grotesk d-block" style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:16px;">Leer →</a>
+        </article>
+      </div>
+
+    </div><!-- /row -->
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--cream);margin-bottom:12px;">La Rana Dorada</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
+      </div>
+      <div class="col-6 col-md-2 offset-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="cervezas.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervezas</a>
+          <a href="cerveceria.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervecería</a>
+          <a href="locales.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Locales</a>
+          <a href="nosotros.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Nosotros</a>
+          <a href="contacto.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada.</p>
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
