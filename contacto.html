@@ -1,41 +1,562 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto — La Rana Dorada</title>
-  <meta name="description" content="Contáctanos. Respondemos a todo, sin excepción. Escríbenos a info@laranadorada.com o visítanos en la Tap Room de La Locería, Ciudad de Panamá.">
+  <meta name="description"
+    content="Contáctanos. Respondemos a todo, sin excepción. Escríbenos a info@laranadorada.com o visítanos en la Tap Room de La Locería, Ciudad de Panamá.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Checkbox hack: state control ── */
+    #form-sent:checked~.state-form {
+      display: none;
+    }
+
+    .state-confirm {
+      display: none;
+    }
+
+    #form-sent:checked~.state-confirm {
+      display: block;
+    }
+
+    /* ── Envelope wrap ── */
+    .envelope-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 0.5px solid rgba(28, 26, 23, 0.12);
+    }
+
+    /* ── Top flap ── */
+    .envelope-flap-top {
+      background: #EADFC8;
+      height: 90px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sender-address {}
+
+    .sender-address .de-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(28, 26, 23, 0.3);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .sender-address .dash-line-1 {
+      width: 120px;
+      height: 1px;
+      background: rgba(28, 26, 23, 0.15);
+      margin-bottom: 6px;
+    }
+
+    .sender-address .dash-line-2 {
+      width: 80px;
+      height: 1px;
+      background: rgba(28, 26, 23, 0.15);
+    }
+
+    .stamp {
+      width: 52px;
+      height: 64px;
+      border: 1px solid rgba(28, 26, 23, 0.2);
+      border-radius: 3px;
+      background: #F5EDD6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .stamp .stamp-frog {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .stamp .stamp-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(28, 26, 23, 0.4);
+    }
+
+    /* ── Letter body ── */
+    .envelope-body {
+      background: white;
+      padding: 36px 40px;
+    }
+
+    .letter-date {
+      text-align: right;
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(28, 26, 23, 0.3);
+      margin-bottom: 24px;
+    }
+
+    .letter-salutation {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: rgba(28, 26, 23, 0.45);
+      margin-bottom: 24px;
+    }
+
+    .letter-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(28, 26, 23, 0.3);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .letter-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(28, 26, 23, 0.15);
+      border-radius: 0;
+      padding: 8px 0;
+      font-family: 'Newsreader', serif;
+      font-size: 1rem;
+      color: #1C1A17;
+      width: 100%;
+      outline: none;
+      transition: border-bottom-color 0.2s ease;
+      display: block;
+    }
+
+    .letter-input:focus {
+      border-bottom-color: #E8A200;
+    }
+
+    .letter-field-row {
+      display: flex;
+      gap: 32px;
+    }
+
+    .letter-field-row+.letter-field-row,
+    .letter-field-full {
+      margin-top: 24px;
+    }
+
+    .letter-field-row>div {
+      flex: 1;
+    }
+
+    .letter-textarea {
+      min-height: 100px;
+      resize: none;
+      background-image: repeating-linear-gradient(transparent, transparent 28px,
+          rgba(28, 26, 23, 0.07) 28px, rgba(28, 26, 23, 0.07) 29px);
+      line-height: 29px;
+    }
+
+    .letter-signoff {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(28, 26, 23, 0.35);
+      margin-top: 24px;
+    }
+
+    /* ── Bottom flap ── */
+    .envelope-flap-bottom {
+      background: #EADFC8;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .postmark {
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid rgba(28, 26, 23, 0.2);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .postmark span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 26, 23, 0.25);
+      line-height: 1.2;
+    }
+
+    /* ── Send button ── */
+    .btn-send {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #E8A200;
+      color: #1C1A17;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 16px;
+    }
+
+    .btn-send:hover {
+      background: #d49100;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes envelopeFly {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+      }
+
+      60% {
+        transform: translate(80px, -60px) rotate(12deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(160px, -120px) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeInConfirm {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Flying envelope ── */
+    .fly-envelope {
+      text-align: center;
+      padding: 32px 0 24px;
+    }
+
+    .env-wrap {
+      width: 80px;
+      height: 54px;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .env-wrap.animated {
+      animation: envelopeFly 1s ease-in forwards;
+      animation-delay: 0.1s;
+      animation-fill-mode: both;
+    }
+
+    .env-body {
+      position: absolute;
+      inset: 0;
+      background: #1C1A17;
+      border-radius: 3px;
+    }
+
+    .env-flap-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-top: 27px solid #2C1F0A;
+    }
+
+    .env-flap-left {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0;
+      border-bottom: 27px solid #2C2018;
+      border-right: 40px solid transparent;
+    }
+
+    .env-flap-right {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 0;
+      border-bottom: 27px solid #2C2018;
+      border-left: 40px solid transparent;
+    }
+
+    /* ── Confirmation card ── */
+    .confirm-card {
+      max-width: 560px;
+      margin: 0 auto;
+      background: #EADFC8;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 0.5px solid rgba(28, 26, 23, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      display: flex;
+      animation: fadeInConfirm 0.5s ease-out forwards;
+      animation-delay: 1.3s;
+      animation-fill-mode: both;
+    }
+
+    .confirm-left {
+      flex: 1;
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .confirm-postmark {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid rgba(28, 26, 23, 0.2);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .confirm-postmark span,
+    .confirm-postmark .pm-check {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 26, 23, 0.25);
+      line-height: 1.3;
+    }
+
+    .confirm-postmark .pm-divider {
+      width: 28px;
+      height: 1px;
+      background: rgba(28, 26, 23, 0.15);
+    }
+
+    .confirm-receipt-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(28, 26, 23, 0.35);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .confirm-headline {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 28px;
+      color: #1C1A17;
+      margin: 0;
+    }
+
+    .confirm-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 26, 23, 0.55);
+      margin-top: 10px;
+    }
+
+    .confirm-divider {
+      border: none;
+      border-top: 1px solid rgba(28, 26, 23, 0.1);
+      margin: 20px 0;
+    }
+
+    .confirm-cheers {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(28, 26, 23, 0.4);
+    }
+
+    .confirm-dashed {
+      width: 0;
+      border-right: 2px dashed rgba(28, 26, 23, 0.15);
+      align-self: stretch;
+    }
+
+    .confirm-right {
+      width: 180px;
+      padding: 32px 24px;
+      background: rgba(28, 26, 23, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .confirm-right .env-wrap-sm {
+      width: 60px;
+      height: 40px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .confirm-right .env-wrap-sm .env-body {
+      background: #1C1A17;
+    }
+
+    .confirm-right .env-wrap-sm .env-flap-top {
+      border-left-width: 30px;
+      border-right-width: 30px;
+      border-top-width: 20px;
+    }
+
+    .confirm-right .env-wrap-sm .env-flap-left {
+      border-bottom-width: 20px;
+      border-right-width: 30px;
+    }
+
+    .confirm-right .env-wrap-sm .env-flap-right {
+      border-bottom-width: 20px;
+      border-left-width: 30px;
+    }
+
+    .confirm-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(28, 26, 23, 0.35);
+    }
+
+    .confirm-email {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      color: #1C1A17;
+    }
+
+    .confirm-addr {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      color: rgba(28, 26, 23, 0.45);
+      line-height: 1.5;
+    }
+
+    /* ── Reset link ── */
+    .btn-reset {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 0.5px solid rgba(28, 26, 23, 0.2);
+      border-radius: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(28, 26, 23, 0.4);
+      text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-reset:hover {
+      border-color: rgba(28, 26, 23, 0.4);
+      color: #1C1A17;
+    }
+
+    /* ── Responsive: stack confirm card ── */
+    @media (max-width: 576px) {
+      .confirm-card {
+        flex-direction: column;
+      }
+
+      .confirm-right {
+        width: 100%;
+        border-top: 2px dashed rgba(28, 26, 23, 0.15);
+      }
+
+      .confirm-dashed {
+        display: none;
+      }
+
+      .letter-field-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body style="background:var(--dark);">
 
   <!-- ══ NAVBAR ══ -->
   <nav class="navbar navbar-expand-lg fixed-top"
-       style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+    style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
     <div class="container-fluid px-4">
       <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
-         style="color:var(--cream); font-size:1.4rem; letter-spacing:-0.01em;">
+        style="color:var(--cream); font-size:1.4rem; letter-spacing:-0.01em;">
         La Rana Dorada
       </a>
-      <button class="navbar-toggler border-0 shadow-none" type="button"
-              data-bs-toggle="collapse" data-bs-target="#navMain"
-              style="color:var(--cream);">
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navMain" style="color:var(--cream);">
         <i class="bi bi-list" style="font-size:1.5rem;"></i>
       </button>
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
-          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cervezas.html">Cervezas</a></li>
-          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cerveceria.html">Cervecería</a></li>
-          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
-          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="nosotros.html">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="blog.html">Blog</a></li>
-          <li class="nav-item"><a class="nav-link font-grotesk nav-link-active" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk"
+              style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);"
+              href="cervezas.html">Cervezas</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk"
+              style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);"
+              href="cerveceria.html">Cervecería</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk"
+              style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);"
+              href="locales.html">Locales</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk"
+              style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);"
+              href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk"
+              style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);"
+              href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk nav-link-active"
+              style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;"
+              href="contacto.html">Contacto</a></li>
         </ul>
         <a href="cerveceria.html" class="font-grotesk"
-           style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(245,237,214,0.4);color:var(--cream);padding:8px 20px;border-radius:2px;white-space:nowrap;">
+          style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(245,237,214,0.4);color:var(--cream);padding:8px 20px;border-radius:2px;white-space:nowrap;">
           Tour Brewery →
         </a>
       </div>
@@ -45,7 +566,8 @@
   <!-- ══ SECTION 1 — HEADER ══ -->
   <header style="background:var(--dark);padding:120px 8% 56px;">
     <span class="label-tag">ESCRÍBENOS</span>
-    <h1 class="font-news fst-italic fw-bold" style="font-size:clamp(2.5rem,6vw,4.5rem);color:var(--cream);margin-top:16px;margin-bottom:12px;">
+    <h1 class="font-news fst-italic fw-bold"
+      style="font-size:clamp(2.5rem,6vw,4.5rem);color:var(--cream);margin-top:16px;margin-bottom:12px;">
       Dinos algo.
     </h1>
     <p class="font-jakarta" style="font-size:1rem;color:rgba(245,237,214,0.4);margin-top:12px;">
@@ -63,24 +585,30 @@
 
           <!-- Bloque 1: Visítanos -->
           <div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">VISÍTANOS</span>
-            <p class="font-jakarta" style="font-size:0.9rem;color:var(--dark);line-height:1.7;margin-top:8px;margin-bottom:0;">
+            <span
+              style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">VISÍTANOS</span>
+            <p class="font-jakarta"
+              style="font-size:0.9rem;color:var(--dark);line-height:1.7;margin-top:8px;margin-bottom:0;">
               Av. Juan Pablo II con Calle C,<br>Urb. Industrial La Locería,<br>Ciudad de Panamá.
             </p>
           </div>
 
           <!-- Bloque 2: Escríbenos -->
           <div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">ESCRÍBENOS</span>
-            <p class="font-jakarta" style="font-size:0.9rem;color:var(--dark);line-height:1.7;margin-top:8px;margin-bottom:0;">
+            <span
+              style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">ESCRÍBENOS</span>
+            <p class="font-jakarta"
+              style="font-size:0.9rem;color:var(--dark);line-height:1.7;margin-top:8px;margin-bottom:0;">
               info@laranadorada.com
             </p>
           </div>
 
           <!-- Bloque 3: Llámanos -->
           <div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">LLÁMANOS</span>
-            <p class="font-jakarta" style="font-size:0.9rem;color:var(--dark);line-height:1.7;margin-top:8px;margin-bottom:0;">
+            <span
+              style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">LLÁMANOS</span>
+            <p class="font-jakarta"
+              style="font-size:0.9rem;color:var(--dark);line-height:1.7;margin-top:8px;margin-bottom:0;">
               +507 397-3141
             </p>
           </div>
@@ -89,98 +617,155 @@
 
         <!-- Separador -->
         <div style="border-top:1px solid rgba(28,26,23,0.1);margin-top:40px;padding-top:40px;">
-          <span style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">SÍGUENOS</span>
+          <span
+            style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.35);">SÍGUENOS</span>
           <p class="font-jakarta" style="font-size:14px;color:var(--gold);margin-top:8px;margin-bottom:0;">
             @laranadorada · @laranadorada
           </p>
         </div>
       </div>
 
-      <!-- ── Columna derecha: formulario con animación ── -->
+      <!-- ── Columna derecha: formulario ── -->
       <div class="col-12 col-lg-7 offset-lg-1">
 
-        <!-- CHECKBOX DE CONTROL — invisible -->
-        <input type="checkbox" id="form-sent" class="d-none">
+        <!-- CHECKBOX DE CONTROL (must precede both state divs as sibling) -->
+        <input type="checkbox" id="form-sent" style="display:none">
 
-        <!-- ESTADO A: EL SOBRE / FORMULARIO -->
-        <div class="envelope-wrapper" id="envelope-wrapper">
+        <!-- ══ ESTADO A: FORMULARIO ══ -->
+        <div class="state-form">
 
-          <!-- Flap superior decorativo -->
-          <div class="envelope-flap-top">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,26,23,0.25);">PARA: LA RANA DORADA</span>
-            <!-- Estampilla decorativa -->
-            <div style="width:44px;height:56px;border:1px solid rgba(28,26,23,0.15);border-radius:2px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.25rem;">🐸</div>
-          </div>
+          <!-- Envelope -->
+          <div class="envelope-wrap">
 
-          <!-- Cuerpo del formulario -->
-          <div class="envelope-body">
-            <div class="row g-3">
-              <div class="col-6">
-                <label class="field-label">Nombre</label>
-                <input type="text" class="field-input" placeholder="Tu nombre">
+            <!-- Top flap -->
+            <div class="envelope-flap-top">
+              <div class="sender-address">
+                <span class="de-label">De:</span>
+                <div class="dash-line-1"></div>
+                <div class="dash-line-2"></div>
               </div>
-              <div class="col-6">
-                <label class="field-label">Email</label>
-                <input type="email" class="field-input" placeholder="tu@email.com">
-              </div>
-              <div class="col-6">
-                <label class="field-label">Teléfono</label>
-                <input type="tel" class="field-input" placeholder="+507">
-              </div>
-              <div class="col-6">
-                <label class="field-label">Asunto</label>
-                <input type="text" class="field-input" placeholder="¿De qué se trata?">
-              </div>
-              <div class="col-12">
-                <label class="field-label">Mensaje</label>
-                <textarea class="field-input" rows="5" placeholder="Escribe aquí..."></textarea>
+              <div class="stamp">
+                <span class="stamp-frog">🐸</span>
+                <span class="stamp-text">Panamá</span>
               </div>
             </div>
-          </div>
 
-          <!-- Flap inferior decorativo -->
-          <div class="envelope-flap-bottom">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.2);">VÍA CORREO ARTESANAL · CIUDAD DE PANAMÁ</span>
-          </div>
-        </div>
+            <!-- Letter body -->
+            <div class="envelope-body">
+              <p class="letter-date">Ciudad de Panamá, abril 2026</p>
+              <p class="letter-salutation">Estimados amigos de La Rana Dorada,</p>
 
-        <!-- BOTÓN DE ENVÍO — es un label que activa el checkbox -->
-        <label for="form-sent" class="btn-enviar font-grotesk d-block text-center" id="btn-enviar">
-          ENVIAR CARTA →
-        </label>
+              <!-- Row 1: Nombre | Email -->
+              <div class="letter-field-row">
+                <div>
+                  <label class="letter-label">Nombre</label>
+                  <input type="text" class="letter-input" placeholder="Tu nombre">
+                </div>
+                <div>
+                  <label class="letter-label">Email</label>
+                  <input type="email" class="letter-input" placeholder="tu@email.com">
+                </div>
+              </div>
 
-        <!-- ESTADO B: ANIMACIÓN + CONFIRMACIÓN (oculto hasta que #form-sent esté checked) -->
-        <div class="post-send-wrapper" id="post-send">
+              <!-- Row 2: Teléfono | Asunto -->
+              <div class="letter-field-row">
+                <div>
+                  <label class="letter-label">Teléfono</label>
+                  <input type="tel" class="letter-input" placeholder="+507">
+                </div>
+                <div>
+                  <label class="letter-label">Asunto</label>
+                  <input type="text" class="letter-input" placeholder="¿De qué se trata?">
+                </div>
+              </div>
 
-          <!-- Sobre volando (CSS puro, sin imágenes) -->
-          <div class="flying-envelope-wrapper">
-            <div class="flying-envelope">
+              <!-- Row 3: Mensaje -->
+              <div class="letter-field-full">
+                <label class="letter-label">Mensaje</label>
+                <textarea class="letter-input letter-textarea" placeholder="Escribe aquí..."></textarea>
+              </div>
+
+              <p class="letter-signoff">Atentamente,</p>
+            </div>
+
+            <!-- Bottom flap -->
+            <div class="envelope-flap-bottom">
+              <div class="postmark">
+                <span>Ciudad</span>
+                <span>de Panamá</span>
+              </div>
+            </div>
+
+          </div><!-- /envelope-wrap -->
+
+          <!-- Send button (label triggers checkbox) -->
+          <label for="form-sent" class="btn-send">SELLAR Y ENVIAR →</label>
+
+        </div><!-- /state-form -->
+
+        <!-- ══ ESTADO B: ANIMACIÓN + CONFIRMACIÓN ══ -->
+        <div class="state-confirm">
+
+          <!-- Flying envelope -->
+          <div class="fly-envelope">
+            <div class="env-wrap animated">
               <div class="env-body"></div>
               <div class="env-flap-top"></div>
-              <div class="env-v-left"></div>
-              <div class="env-v-right"></div>
+              <div class="env-flap-left"></div>
+              <div class="env-flap-right"></div>
             </div>
           </div>
 
-          <!-- Confirmación (aparece con delay tras el vuelo) -->
-          <div class="confirmation-wrapper">
-            <div class="check-circle">
-              <div class="check-mark"></div>
+          <!-- Postcard confirmation -->
+          <div class="confirm-card">
+
+            <!-- Left half -->
+            <div class="confirm-left">
+              <!-- Postmark top-right -->
+              <div class="confirm-postmark">
+                <span>Recibido</span>
+                <div class="pm-divider"></div>
+                <span class="pm-check">✓</span>
+              </div>
+
+              <span class="confirm-receipt-label">Acuse de Recibo</span>
+              <p class="confirm-headline">Tu carta llegó.</p>
+              <p class="confirm-sub">Te respondemos antes de 24 horas.</p>
+              <hr class="confirm-divider">
+              <p class="confirm-cheers">Mientras tanto, sírvete una bien fría.</p>
             </div>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:2rem;color:var(--dark);text-align:center;margin-top:24px;">
-              ¡Carta enviada!
-            </h2>
-            <p class="font-jakarta" style="font-size:0.9rem;color:rgba(28,26,23,0.55);text-align:center;margin-top:8px;">
-              Te respondemos antes de 24 horas.<br>Mientras tanto, sírvete una bien fría.
-            </p>
-            <!-- "Enviar otra" recarga la página -->
-            <a href="contacto.html" class="font-grotesk d-block text-center"
-               style="margin-top:32px;border:0.5px solid rgba(28,26,23,0.2);border-radius:4px;padding:12px 24px;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,26,23,0.4);width:fit-content;margin-left:auto;margin-right:auto;">
-              ENVIAR OTRA →
-            </a>
+
+            <!-- Dashed divider -->
+            <div class="confirm-dashed"></div>
+
+            <!-- Right half -->
+            <div class="confirm-right">
+              <!-- Static small envelope -->
+              <div class="env-wrap-sm" style="position:relative;width:60px;height:40px;flex-shrink:0;">
+                <div class="env-body" style="position:absolute;inset:0;background:#1C1A17;border-radius:3px;"></div>
+                <div
+                  style="position:absolute;top:0;left:0;right:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:20px solid #2C1F0A;">
+                </div>
+                <div
+                  style="position:absolute;bottom:0;left:0;height:0;border-bottom:20px solid #2C2018;border-right:30px solid transparent;">
+                </div>
+                <div
+                  style="position:absolute;bottom:0;right:0;height:0;border-bottom:20px solid #2C2018;border-left:30px solid transparent;">
+                </div>
+              </div>
+              <span class="confirm-brand">La Rana Dorada</span>
+              <span class="confirm-email">info@laranadorada.com</span>
+              <span class="confirm-addr">Av. Juan Pablo II con Calle C</span>
+            </div>
+
+          </div><!-- /confirm-card -->
+
+          <!-- Reset link -->
+          <div style="text-align:center;margin-top:20px;">
+            <a href="contacto.html" class="btn-reset">ENVIAR OTRA →</a>
           </div>
 
-        </div>
+        </div><!-- /state-confirm -->
 
       </div><!-- /col derecha -->
     </div><!-- /row -->
@@ -190,34 +775,48 @@
   <footer>
     <div class="row g-4">
       <div class="col-12 col-md-4">
-        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--cream);margin-bottom:12px;">La Rana Dorada</p>
-        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
+        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--cream);margin-bottom:12px;">La Rana
+          Dorada</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera
+          cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
       </div>
       <div class="col-6 col-md-2 offset-md-2">
-        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
+        <p class="font-grotesk"
+          style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">
+          Navegación</p>
         <div class="d-flex flex-column gap-2">
           <a href="cervezas.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervezas</a>
-          <a href="cerveceria.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervecería</a>
+          <a href="cerveceria.html" class="font-jakarta"
+            style="font-size:13px;color:rgba(245,237,214,0.6);">Cervecería</a>
           <a href="locales.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Locales</a>
           <a href="nosotros.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Nosotros</a>
           <a href="blog.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Blog</a>
         </div>
       </div>
       <div class="col-6 col-md-2">
-        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Contacto</p>
+        <p class="font-grotesk"
+          style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">
+          Contacto</p>
         <div class="d-flex flex-column gap-2">
           <span class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">info@laranadorada.com</span>
           <span class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">+507 397-3141</span>
-          <a href="https://instagram.com/laranadorada" target="_blank" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">@laranadorada</a>
+          <a href="https://instagram.com/laranadorada" target="_blank" class="font-jakarta"
+            style="font-size:13px;color:rgba(245,237,214,0.6);">@laranadorada</a>
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
-      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada. Todos los derechos reservados.</p>
-      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
+    <div class="d-flex justify-content-between align-items-center mt-5 pt-4"
+      style="border-top:1px solid rgba(245,237,214,0.06);">
+      <p class="font-grotesk"
+        style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">©
+        2025 La Rana Dorada. Todos los derechos reservados.</p>
+      <p class="font-grotesk"
+        style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">
+        Bebe con responsabilidad.</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
