@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'Cervecería', href: '/cerveceria' },
   { label: 'Nosotros', href: '/nosotros' },
   { label: 'Locales', href: '/locales' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 export default function Navbar({ cartCount, badgeRef }: NavbarProps) {

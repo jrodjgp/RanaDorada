@@ -6,6 +6,7 @@ import BeerDetailPage from './pages/BeerDetailPage';
 import CerveceriaPage from './pages/CerveceriaPage';
 import NosotrosPage from './pages/NosotrosPage';
 import LocalesPage from './pages/LocalesPage';
+import BlogPage from './pages/BlogPage';
 import CartDrawer from './components/CartDrawer';
 import { Beer } from './data/beers';
 
@@ -97,6 +98,15 @@ export default function App() {
           path="/locales"
           element={
             <LocalesPage
+              cartCount={cartCount}
+              badgeRef={badgeRef}
+            />
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <BlogPage
               cartCount={cartCount}
               badgeRef={badgeRef}
             />
