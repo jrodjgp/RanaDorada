@@ -13,7 +13,6 @@
     /* ── Page-specific ── */
     .hero-section {
       height: 100vh;
-      background-color: #2C1F0A;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -60,6 +59,10 @@
       inset: 0;
       background: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.05) 100%);
       pointer-events: none;
+    }
+    .beer-slide-content {
+      transform: scale(1);
+      transform-origin: center center;
     }
     .carousel-arrow-btn {
       position: absolute;
@@ -210,8 +213,10 @@
 
   <!-- ══ HERO ══ -->
   <section class="hero-section">
+    <img src="img/index_main_photo.jpg" alt="La Rana Dorada" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0;">
+    <div style="position:absolute; inset:0; background:rgba(0,0,0,0.45); z-index:1;"></div>
     <div class="hero-radial"></div>
-    <div style="padding-left:8%;padding-right:8%;padding-bottom:10vh;max-width:780px;position:relative;z-index:1;">
+    <div style="padding-left:8%;padding-right:8%;padding-bottom:10vh;max-width:780px;position:relative;z-index:2;">
       <h1 class="font-news fst-italic fw-bold text-uppercase"
           style="color:var(--oro);line-height:1;letter-spacing:-0.01em;font-size:clamp(42px,8vw,80px);">
         Cerveza Artesanal.<br>Hecha en Panamá.
@@ -252,10 +257,10 @@
 
       <!-- Slide 1: Blanche -->
       <div class="carousel-item active h-100" style="background-color:#C49A00;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">01 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Blanche</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Blanche</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">Witbier</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -272,19 +277,17 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#C49A00;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">Blanche CAN</span>
-            </div>
+            <img src="img/blanche.png" alt="Blanche" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 2: Pale Ale -->
       <div class="carousel-item h-100" style="background-color:#7A2200;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">02 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Pale Ale</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Pale Ale</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">English Pale Ale</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -301,19 +304,17 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#5C1800;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">Pale Ale CAN</span>
-            </div>
+            <img src="img/pale_ale.png" alt="Pale Ale" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 3: Porter -->
       <div class="carousel-item h-100" style="background-color:#1A1008;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">03 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Porter</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Porter</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">English-Style Porter</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -330,19 +331,17 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#0E0804;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">Porter CAN</span>
-            </div>
+            <img src="img/porter.png" alt="Porter" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 4: IPA -->
       <div class="carousel-item h-100" style="background-color:#1A3A0A;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">04 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">IPA</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">IPA</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">American IPA</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -359,20 +358,18 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#0E2A04;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">IPA CAN</span>
-            </div>
+            <img src="img/ipa.png" alt="IPA" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 5: Pils -->
       <div class="carousel-item h-100" style="background-color:#B8860A;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">05 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Pils</h2>
-            <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">Czech Pilsner</span>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Pils</h2>
+            <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oscuro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">Czech Pilsner</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
               <div class="d-flex justify-content-between"><span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--crema);opacity:0.6;">ABV</span><span class="font-grotesk fw-bold" style="font-size:14px;color:var(--crema);">4.8%</span></div>
@@ -383,24 +380,22 @@
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <p class="font-jakarta fst-italic" style="font-size:14px;color:var(--crema);opacity:0.75;margin-bottom:28px;">limpio · fresco · dorado</p>
             <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-              <span class="font-grotesk fw-bold" style="font-size:28px;color:var(--oro);">$2.20</span>
+              <span class="font-grotesk fw-bold" style="font-size:28px;color:var(--oscuro);">$2.20</span>
               <a href="cervezas.html" class="btn-gold" style="font-size:11px;padding:12px 20px;">Ver Cervezas</a>
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#9A6E04;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">Pils CAN</span>
-            </div>
+            <img src="img/pils.png" alt="Pils" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 6: Grand Cru -->
       <div class="carousel-item h-100" style="background-color:#2D1540;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">06 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Grand Cru</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Grand Cru</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">Belgian Strong</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -417,19 +412,17 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#1F0D2E;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">Grand Cru CAN</span>
-            </div>
+            <img src="img/grand_cru.png" alt="Grand Cru" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 7: Coco Porter -->
       <div class="carousel-item h-100" style="background-color:#3D1800;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">07 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Coco Porter</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">Coco Porter</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">Porter con Coco</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -446,19 +439,17 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#2D0E00;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">Coco Porter CAN</span>
-            </div>
+            <img src="img/coco_porter.png" alt="Coco Porter" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
 
       <!-- Slide 8: 6-Pack -->
       <div class="carousel-item h-100" style="background-color:#1C1A17;">
-        <div class="d-flex h-100 position-relative" style="z-index:1;">
+        <div class="d-flex h-100 position-relative beer-slide-content" style="z-index:1;">
           <div style="width:45%;padding-left:8%;padding-right:4%;display:flex;flex-direction:column;justify-content:center;padding-top:80px;">
             <span class="font-grotesk" style="font-size:12px;color:var(--crema);opacity:0.5;letter-spacing:0.1em;margin-bottom:40px;display:block;">08 / 08</span>
-            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(42px,5vw,72px);color:var(--crema);line-height:1.05;margin-bottom:20px;">6-Pack</h2>
+            <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(52px,6.25vw,90px);color:var(--crema);line-height:1.05;margin-bottom:20px;">6-Pack</h2>
             <span class="font-grotesk" style="display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oro);border:1px solid var(--oro);padding:4px 10px;margin-bottom:28px;align-self:flex-start;">Mix Clásicas</span>
             <hr style="border-color:rgba(255,255,255,0.15);margin-bottom:20px;">
             <div class="d-flex flex-column gap-2 mb-3">
@@ -473,9 +464,7 @@
             </div>
           </div>
           <div style="width:55%;display:flex;align-items:center;justify-content:center;">
-            <div class="can-placeholder" style="background-color:#141210;width:220px;height:380px;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:13px;opacity:0.6;">6-Pack</span>
-            </div>
+            <img src="img/6pack.png" alt="6-Pack" style="width:375px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 24px 40px rgba(0,0,0,0.3)); object-fit:contain;">
           </div>
         </div>
       </div>
@@ -551,9 +540,9 @@
       </div>
     </div>
     <div class="d-flex" style="width:100%;">
-      <div class="loc-card" style="background:#2C1F0A;">
-        <div class="loc-card-inner position-absolute" style="inset:0;background:#2C1F0A;"></div>
-        <div class="position-absolute" style="inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,0.75) 100%);pointer-events:none;"></div>
+      <div class="loc-card" style="background:#2C1F0A;" onclick="window.location.href='locales.html'">
+        <img src="img/local_casco_viejo.jpg" alt="Casco Viejo" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); z-index:1;"></div>
         <div class="position-absolute" style="top:24px;left:24px;background:var(--oro);color:var(--oscuro);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;z-index:2;">
           Nuestro Flagship
         </div>
@@ -562,16 +551,16 @@
           <p class="font-jakarta" style="font-size:14px;color:rgba(255,255,255,0.7);">La Rana Dorada Original</p>
         </div>
       </div>
-      <div class="loc-card" style="background:#1C3020;">
-        <div class="loc-card-inner position-absolute" style="inset:0;background:#1C3020;"></div>
-        <div class="position-absolute" style="inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,0.75) 100%);pointer-events:none;"></div>
+      <div class="loc-card" style="background:#1C3020;" onclick="window.location.href='locales.html'">
+        <img src="img/local_via_argentina.png" alt="Vía Argentina" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); z-index:1;"></div>
         <div class="position-absolute" style="bottom:32px;left:32px;z-index:2;">
           <h3 class="font-news fw-bold" style="font-size:52px;color:#fff;line-height:1;margin-bottom:8px;">EL CANGREJO</h3>
           <p class="font-jakarta" style="font-size:14px;color:rgba(255,255,255,0.7);">Vía Argentina, junto al Parque</p>
         </div>
       </div>
     </div>
-    <div class="text-center" style="margin-top:32px;margin-bottom:80px;">
+    <div class="d-flex justify-content-center" style="background:var(--crema); padding:24px 0;">
       <a href="locales.html" class="font-grotesk fw-bold" style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--oro);text-decoration:none;transition:opacity 0.2s;">
         Ver todos los locales →
       </a>
@@ -593,20 +582,20 @@
       </div>
       <div class="d-flex justify-content-center align-items-end flex-fill">
         <div class="d-flex align-items-end soda-row">
-          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:8px;background:#7BB83A;margin-left:0;transform:rotate(-8deg);box-shadow:0 8px 24px rgba(0,0,0,0.2);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:9px;color:rgba(255,255,255,0.85);font-weight:500;">Limón</span>
+          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:0;background:transparent;margin-left:0;transform:rotate(-8deg);box-shadow:none;display:flex;align-items:center;justify-content:center;padding-bottom:0;overflow:visible;">
+            <img src="img/SB_PEPIMON.png" alt="Pepimón" style="width:150%; height:auto; object-fit:contain; padding:0; display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.2));">
           </div>
-          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:8px;background:#E8821A;margin-left:-12px;transform:rotate(-4deg);box-shadow:0 8px 24px rgba(0,0,0,0.2);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:9px;color:rgba(255,255,255,0.85);font-weight:500;">Naranja</span>
+          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:0;background:transparent;margin-left:-12px;transform:rotate(-4deg);box-shadow:none;display:flex;align-items:center;justify-content:center;padding-bottom:0;overflow:visible;">
+            <img src="img/SB_GINGURU.png" alt="Gingurú" style="width:150%; height:auto; object-fit:contain; padding:0; display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.2));">
           </div>
-          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:8px;background:#E84B6A;margin-left:-12px;transform:rotate(0deg);box-shadow:0 8px 24px rgba(0,0,0,0.2);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:9px;color:rgba(255,255,255,0.85);font-weight:500;">Toronja</span>
+          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:0;background:transparent;margin-left:-12px;transform:rotate(0deg);box-shadow:none;display:flex;align-items:center;justify-content:center;padding-bottom:0;overflow:visible;">
+            <img src="img/SB_Mango_Pasion.png" alt="Mango Pasión" style="width:150%; height:auto; object-fit:contain; padding:0; display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.2));">
           </div>
-          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:8px;background:#C4A800;margin-left:-12px;transform:rotate(4deg);box-shadow:0 8px 24px rgba(0,0,0,0.2);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:9px;color:rgba(255,255,255,0.85);font-weight:500;">Jengibre</span>
+          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:0;background:transparent;margin-left:-12px;transform:rotate(4deg);box-shadow:none;display:flex;align-items:center;justify-content:center;padding-bottom:0;overflow:visible;">
+            <img src="img/SB_MANSA_COLA.png" alt="Mansa Cola" style="width:150%; height:auto; object-fit:contain; padding:0; display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.2));">
           </div>
-          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:8px;background:#5C1A2A;margin-left:-12px;transform:rotate(8deg);box-shadow:0 8px 24px rgba(0,0,0,0.2);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:9px;color:rgba(255,255,255,0.85);font-weight:500;">Kola</span>
+          <div class="soda-can" style="position:relative;width:72px;height:120px;border-radius:0;background:transparent;margin-left:-12px;transform:rotate(8deg);box-shadow:none;display:flex;align-items:center;justify-content:center;padding-bottom:0;overflow:visible;">
+            <img src="img/SB_NAPI_COLADA.png" alt="Napi Colada" style="width:150%; height:auto; object-fit:contain; padding:0; display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.2));">
           </div>
         </div>
       </div>
