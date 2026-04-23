@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soda Bahía - La Rana Dorada</title>
+  <meta name="description" content="Soda Bahía, primera soda artesanal de Panamá bajo La Rana Dorada. Fruta real, sin azúcar añadida, sin artificiales.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --soda-cyan: #29C4D8;
+      --soda-amber: #F5A623;
+      --soda-light: #E8F9FB;
+    }
+
+    .soda-hero {
+      background: var(--soda-cyan);
+      padding: 140px 8% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soda-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20px 20px, rgba(255,255,255,0.12) 2px, transparent 2px);
+      background-size: 36px 36px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .soda-section {
+      background: #fff;
+      padding: 80px 8%;
+    }
+
+    .soda-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid rgba(0,0,0,0.07);
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-strip {
+      background: var(--soda-cyan);
+      padding: 72px 8%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-strip::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 10px;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.2) 0,
+        rgba(255,255,255,0.2) 12px,
+        rgba(255,255,255,0) 12px,
+        rgba(255,255,255,0) 24px
+      );
+    }
+  </style>
+</head>
+<body style="background:#FFFFFF;">
+
+  <!-- ══ BARRA DE NAVEGACION ══ -->
+  <nav class="navbar navbar-expand-lg fixed-top"
+       style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
+         style="color:var(--crema); font-size:1.4rem; letter-spacing:-0.01em;">
+        La Rana Dorada
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMain"
+              style="color:var(--crema);">
+        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cervezas.html">Cervezas</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cerveceria.html">Cervecería</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--oro);" href="contacto.html">Contacto</a></li>
+          <li class="nav-item">
+            <a class="nav-link font-grotesk"
+               style="font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--soda-cyan);"
+               href="sodabahia.html">Soda Bahía</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-3 py-2 py-lg-0">
+          <button class="nav-icon-btn position-relative" type="button"
+                  data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">
+            <i class="bi bi-bag" style="font-size:1.1rem;"></i>
+            <span class="cart-badge">2</span>
+          </button>
+          <button class="nav-icon-btn" type="button"
+                  data-bs-toggle="modal" data-bs-target="#authModal">
+            <i class="bi bi-person" style="font-size:1.1rem;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1 - HERO -->
+  <section class="soda-hero">
+    <div class="container-fluid p-0 position-relative" style="z-index:1;">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6">
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                       letter-spacing:0.25em; text-transform:uppercase;
+                       color:rgba(255,255,255,0.65); display:block; margin-bottom:16px;">
+            BAJO LA RANA DORADA · PANAMÁ SPARKLING DRINKS
+          </span>
+          <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                     font-size:clamp(3.5rem,8vw,6rem); color:white; line-height:0.95;
+                     letter-spacing:-0.02em; margin-bottom:24px;">
+            SODA<br>BAHÍA
+          </h1>
+          <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem;
+                    color:rgba(255,255,255,0.8); line-height:1.7; max-width:400px;
+                    margin-bottom:32px;">
+            Primera soda artesanal de Panamá. Fruta 100% real,
+            sin azúcar añadida, sin artificiales.
+            ¡Más que una soda, es fruta hasta la última gota!
+          </p>
+          <a href="#sabores"
+             style="display:inline-block; background:white; color:var(--soda-cyan);
+                    font-family:'Space Grotesk',sans-serif; font-weight:700;
+                    font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase;
+                    padding:16px 32px; border-radius:3px; text-decoration:none;">
+            VER SABORES →
+          </a>
+        </div>
+        <div class="col-12 col-lg-5 offset-lg-1 text-center">
+          <div style="width:180px; height:320px; margin:0 auto;
+                      background:linear-gradient(170deg, #1AAFC0 0%, #29C4D8 40%, #5DD6E4 100%);
+                      border-radius:20px; position:relative; overflow:hidden;
+                      box-shadow: 0 24px 48px rgba(0,0,0,0.15);">
+            <div style="position:absolute; bottom:0; left:-10px; right:-10px; height:120px;
+                        background:rgba(255,255,255,0.08);
+                        clip-path: ellipse(55% 80% at 50% 100%);"></div>
+            <div style="position:absolute; inset:0; display:flex; flex-direction:column;
+                        align-items:center; justify-content:center; gap:8px; padding:24px;">
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                           letter-spacing:0.3em; text-transform:uppercase;
+                           color:rgba(255,255,255,0.5);">PANAMA SPARKLING</span>
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                           font-size:1.6rem; color:white; text-align:center;
+                           line-height:1; letter-spacing:-0.02em;">SODA<br>BAHÍA</span>
+              <div style="width:48px; height:1px; background:rgba(255,255,255,0.3); margin:4px 0;"></div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                           letter-spacing:0.2em; text-transform:uppercase;
+                           color:rgba(255,255,255,0.6);">355 ML</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute; bottom:0; left:0; right:0; height:60px;
+                background:white;
+                clip-path: ellipse(55% 100% at 50% 100%);"></div>
+  </section>
+
+  <!-- SECTION 2 - SABORES -->
+  <section id="sabores" class="soda-section">
+    <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                 letter-spacing:0.25em; text-transform:uppercase;
+                 color:var(--soda-cyan);">NUESTROS SABORES</span>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+               font-size:clamp(2rem,4vw,3rem); color:var(--oscuro); margin-top:8px;">
+      Cuatro sabores.<br>Un solo origen.
+    </h2>
+
+    <div class="row g-4 mt-5">
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="soda-card">
+          <div style="height:180px; background:#29C4D8; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">PEPIMÓN</span>
+            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
+                        background:white;
+                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
+          </div>
+          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
+            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
+              Limón con toque de pepino e infusión de hierbabuena.
+              Mega refrescante y ligera.
+            </p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Limón, pepino · Especias: Hierbabuena</p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 20 kcal</p>
+
+            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">DULZOR</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                </div>
+              </div>
+              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                           letter-spacing:0.12em; text-transform:uppercase;
+                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                           color:var(--oscuro);">Perfecta con tequila, mezcal, ron blanco y ginebra</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
+              <button style="background:var(--soda-cyan); color:white;
+                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
+                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
+                AÑADIR →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="soda-card">
+          <div style="height:180px; background:#F5A623; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">GINGURÚ</span>
+            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
+                        background:white;
+                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
+          </div>
+          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
+            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
+              Ginger ale panameña. Balance perfecto de piña tropical
+              con picor suave de jengibre.
+            </p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Piña, naranja, limón · Especias: Jengibre, cardamomo, cilantro, enebro</p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 100 kcal</p>
+
+            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">DULZOR</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                </div>
+              </div>
+              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                           letter-spacing:0.12em; text-transform:uppercase;
+                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                           color:var(--oscuro);">Ideal con ron añejo, whisky o sola sobre hielo</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
+              <button style="background:var(--soda-cyan); color:white;
+                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
+                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
+                AÑADIR →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="soda-card">
+          <div style="height:180px; background:#FF7B3D; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">MANGO PASIÓN</span>
+            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
+                        background:white;
+                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
+          </div>
+          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
+            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
+              Combinación tropical de mango y maracuyá.
+              Dulce, cítrico y coloreado de optimismo.
+            </p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Mango, maracuyá, limón · Especias: Cúrcuma</p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 85 kcal</p>
+
+            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">DULZOR</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                </div>
+              </div>
+              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                           letter-spacing:0.12em; text-transform:uppercase;
+                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                           color:var(--oscuro);">Perfecta con ron blanco, vodka o cava</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
+              <button style="background:var(--soda-cyan); color:white;
+                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
+                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
+                AÑADIR →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="soda-card">
+          <div style="height:180px; background:#3D2B1F; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">MANSA COLA</span>
+            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
+                        background:white;
+                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
+          </div>
+          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
+            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
+              La primera cola artesanal panameña. Sin cafeína,
+              sin azúcar añadida. Con extracto de nuez de cola y cítricos.
+            </p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Limón, naranja, jugo de manzana · Extracto: Nuez de cola</p>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
+                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 20 kcal</p>
+
+            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">DULZOR</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                             letter-spacing:0.15em; text-transform:uppercase;
+                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
+                <div style="display:flex; gap:4px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
+                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+                </div>
+              </div>
+              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                           letter-spacing:0.12em; text-transform:uppercase;
+                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                           color:var(--oscuro);">Perfecta con ron, whisky o solo sobre hielo</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
+              <button style="background:var(--soda-cyan); color:white;
+                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
+                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
+                AÑADIR →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 - ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-6">
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                     letter-spacing:0.22em; text-transform:uppercase;
+                     color:rgba(255,255,255,0.55); display:block; margin-bottom:12px;">
+          SIN AZÚCAR AÑADIDA · SIN ARTIFICIALES
+        </span>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                   font-size:clamp(1.8rem,3.5vw,2.8rem); color:white; line-height:1.05;">
+          Hecha con los mismos<br>estándares de la cervecería.
+        </h3>
+      </div>
+      <div class="col-12 col-lg-5 offset-lg-1">
+        <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem;
+                  color:rgba(255,255,255,0.8); line-height:1.8;">
+          Soda Bahía nació en las mismas instalaciones de La Rana Dorada.
+          Usamos frutas panameñas reales, agua carbonatada natural y
+          nada más. Primera soda artesanal hecha a mano en Panamá.
+        </p>
+        <a href="cerveceria.html"
+           style="display:inline-block; margin-top:24px;
+                  border:1.5px solid rgba(255,255,255,0.5); color:white;
+                  font-family:'Space Grotesk',sans-serif; font-weight:700;
+                  font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase;
+                  padding:14px 28px; border-radius:3px; text-decoration:none;">
+          CONOCE LA CERVECERÍA →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PIE DE PAGINA ══ -->
+  <footer>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--crema);margin-bottom:12px;">La Rana Dorada</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
+      </div>
+      <div class="col-6 col-md-2 offset-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="cervezas.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervezas</a>
+          <a href="cerveceria.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Cervecería</a>
+          <a href="locales.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Locales</a>
+          <a href="nosotros.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Nosotros</a>
+          <a href="blog.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Blog</a>
+          <a href="contacto.html" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Contacto</a>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Síguenos</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="https://instagram.com/laranadorada" target="_blank" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">@laranadorada</a>
+          <a href="https://facebook.com/laranadorada" target="_blank" class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);">Facebook</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-2">
+        <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Contacto</p>
+        <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.6);line-height:1.7;">info@laranadorada.com</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada. Todos los derechos reservados.</p>
+      <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
+    </div>
+  </footer>
+
+  <!-- ══ CARRITO LATERAL ══ -->
+  <div class="offcanvas offcanvas-end" tabindex="-1"
+       id="cartDrawer" aria-labelledby="cartDrawerLabel"
+       style="width:380px; background:var(--crema); border-left:0.5px solid rgba(28,26,23,0.1);">
+    <div class="offcanvas-header" style="border-bottom:1px solid rgba(28,26,23,0.08); padding:24px 28px;">
+      <div>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.4); display:block; margin-bottom:4px;">TU PEDIDO</span>
+        <h5 id="cartDrawerLabel" style="font-family:'Newsreader',serif; font-style:italic; font-weight:700; font-size:1.4rem; color:var(--oscuro); margin:0;">Carrito</h5>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="filter:invert(0.3);"></button>
+    </div>
+    <div class="offcanvas-body" style="padding:0; display:flex; flex-direction:column;">
+      <div style="flex:1; overflow-y:auto; padding:8px 0;">
+        <div class="cart-item">
+          <div class="cart-item-color" style="background:#2A1008;"></div>
+          <div class="cart-item-info">
+            <span class="cart-item-name">Pedro Mandinga Red Ale</span>
+            <span class="cart-item-variant">Lata 473ml</span>
+          </div>
+          <div class="cart-item-right">
+            <span class="cart-item-price">$3.50</span>
+            <div class="cart-cantidad"><span class="cart-cantidad-btn">−</span><span class="cart-cantidad-num">1</span><span class="cart-cantidad-btn">+</span></div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <div class="cart-item-color" style="background:#E8A200;"></div>
+          <div class="cart-item-info">
+            <span class="cart-item-name">Golden Ale</span>
+            <span class="cart-item-variant">Lata 473ml × 6-Pack</span>
+          </div>
+          <div class="cart-item-right">
+            <span class="cart-item-price">$18.00</span>
+            <div class="cart-cantidad"><span class="cart-cantidad-btn">−</span><span class="cart-cantidad-num">1</span><span class="cart-cantidad-btn">+</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:16px 24px; border-top:1px solid rgba(28,26,23,0.07); border-bottom:1px solid rgba(28,26,23,0.07);">
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.35); display:block; margin-bottom:8px;">NOTA (OPCIONAL)</span>
+        <textarea rows="2" placeholder="Instrucciones especiales..." style="width:100%; background:#FAFAF7; border:0.5px solid rgba(28,26,23,0.12); border-radius:4px; padding:10px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem; color:var(--oscuro); resize:none; outline:none;"></textarea>
+      </div>
+      <div style="padding:24px 28px;">
+        <div class="d-flex justify-content-between align-items-baseline mb-3">
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.4);">SUBTOTAL</span>
+          <span style="font-family:'Newsreader',serif; font-weight:700; font-size:1.4rem; color:var(--oscuro);">$21.50</span>
+        </div>
+        <a href="#" class="d-block text-center" style="background:var(--oscuro); color:var(--crema); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:16px; border-radius:3px; text-decoration:none;">PROCEDER AL PAGO →</a>
+        <a href="#" class="d-block text-center mt-2" style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.35); text-decoration:none; padding:8px;">SEGUIR COMPRANDO</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MODAL DE AUTENTICACIÓN ══ -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:440px;">
+      <div class="modal-content" style="background:var(--crema); border:0.5px solid rgba(28,26,23,0.12); border-radius:8px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.12);">
+        <div style="background:var(--oscuro); padding:32px 36px 0; position:relative;">
+          <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" style="top:16px; right:16px; opacity:0.5;"></button>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--oro); display:block; margin-bottom:8px;">LA RANA DORADA</span>
+          <h2 style="font-family:'Newsreader',serif; font-style:italic; font-weight:700; font-size:1.8rem; color:var(--crema); margin-bottom:24px;">Tu cuenta</h2>
+          <ul class="nav nav-tabs border-0 gap-3" id="authTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="auth-tab active" id="login-tab" data-bs-toggle="tab" data-bs-target="#loginPanel" type="button" role="tab">Iniciar Sesión</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="auth-tab" id="register-tab" data-bs-toggle="tab" data-bs-target="#registerPanel" type="button" role="tab">Registrarse</button>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content" style="padding:32px 36px;">
+          <div class="tab-pane fade show active" id="loginPanel" role="tabpanel">
+            <div class="mb-4"><label class="auth-label">Correo electrónico</label><input type="email" class="auth-input" placeholder="tu@email.com"></div>
+            <div class="mb-4"><label class="auth-label">Contraseña</label><input type="password" class="auth-input" placeholder="••••••••"></div>
+            <a href="profile.html" style="display:block; width:100%; text-align:center; background:var(--oscuro); color:var(--crema); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:16px; border-radius:3px; text-decoration:none; margin-bottom:16px;">ENTRAR →</a>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.75rem; color:rgba(28,26,23,0.4); text-align:center; margin:0;">¿Olvidaste tu contraseña? <span style="color:var(--oro); cursor:pointer;">Recupérala aquí</span></p>
+          </div>
+          <div class="tab-pane fade" id="registerPanel" role="tabpanel">
+            <div class="row g-3 mb-3">
+              <div class="col-6"><label class="auth-label">Nombre</label><input type="text" class="auth-input" placeholder="Tu nombre"></div>
+              <div class="col-6"><label class="auth-label">Apellido</label><input type="text" class="auth-input" placeholder="Tu apellido"></div>
+            </div>
+            <div class="mb-3"><label class="auth-label">Correo electrónico</label><input type="email" class="auth-input" placeholder="tu@email.com"></div>
+            <div class="mb-4"><label class="auth-label">Contraseña</label><input type="password" class="auth-input" placeholder="Mínimo 8 caracteres"></div>
+            <a href="profile.html" style="display:block; width:100%; text-align:center; background:var(--oro); color:var(--oscuro); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:16px; border-radius:3px; text-decoration:none;">CREAR CUENTA →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
