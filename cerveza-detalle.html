@@ -44,6 +44,22 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.12);
       border-color: var(--oro);
     }
+
+    @media (max-width: 768px) {
+      .detalle-hero {
+        flex-direction: column;
+      }
+      .detalle-photo {
+        position: relative !important;
+        width: 100% !important;
+        height: 60vw !important;
+        min-height: 260px;
+      }
+      .detalle-info {
+        width: 100% !important;
+        padding: 48px 6% 64px !important;
+      }
+    }
   </style>
 </head>
 <body style="background:var(--crema);">
@@ -90,93 +106,34 @@
     </div>
   </nav>
 
-  <!-- ══ SECTION 1 — SPLIT HERO ══ -->
-  <div class="d-flex flex-column flex-md-row" style="height:100vh;min-height:600px;">
-
-    <!-- Left: can placeholder -->
-    <div style="width:45%;background:#B8860A;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;" class="w-100 w-md-45">
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.12);pointer-events:none;"></div>
-      <div style="position:relative;z-index:1;">
-        <div style="background:#9A6E04;width:280px;height:480px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 32px 72px rgba(0,0,0,0.4);">
-          <img src="img/pils.png" alt="Pils" style="width:100%;height:100%;object-fit:contain;padding:16px;display:block;">
-        </div>
-      </div>
+  <section class="detalle-hero" style="min-height:100vh; display:flex; margin-top:0;">
+    <div class="detalle-photo" style="position:sticky; top:0; width:50%; height:100vh; flex-shrink:0; overflow:hidden;">
+      <img src="img/cerveza_detalle.jpg" alt="La Rana Dorada" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
     </div>
 
-    <!-- Right: info -->
-    <div style="flex:1;background:var(--crema);display:flex;flex-direction:column;justify-content:center;padding:80px 8% 40px;overflow-y:auto;">
-      <!-- Breadcrumb -->
+    <div class="detalle-info" style="flex:1; background:var(--crema); padding:120px 8% 80px; display:flex; flex-direction:column; justify-content:center;">
       <a href="cervezas.html" class="font-grotesk" style="font-size:11px;color:#999;letter-spacing:0.1em;margin-bottom:32px;display:block;">
         ← Cervezas &raquo; Pils
       </a>
 
-      <!-- Award badge -->
       <div class="d-inline-flex align-items-center gap-2 mb-3" style="background:rgba(232,162,0,0.08);border:1px solid rgba(232,162,0,0.3);border-radius:4px;padding:6px 14px;align-self:flex-start;">
         <span style="font-size:1rem;">🥇</span>
         <span class="font-grotesk" style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--oro);">Oro · Copa Cervezas de América</span>
       </div>
 
-      <!-- Style tag -->
       <span style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--oscuro);border:1px solid var(--oscuro);padding:4px 10px;margin-bottom:16px;align-self:flex-start;">
         Czech Pilsner
       </span>
 
       <h1 class="font-news fw-bold" style="font-size:clamp(48px,6vw,80px);color:var(--oscuro);line-height:1;margin-bottom:8px;">Pils</h1>
-      <p class="font-grotesk" style="font-size:20px;font-weight:500;color:var(--oro);margin-bottom:20px;">4.8% ABV</p>
       <p class="font-jakarta fst-italic" style="font-size:16px;color:#555;line-height:1.65;max-width:440px;margin-bottom:32px;">
         limpio · fresco · dorado
       </p>
-      <p class="font-grotesk fw-bold" style="font-size:32px;color:var(--oscuro);margin-bottom:28px;">$2.20</p>
 
-      <!-- Qty selector (pure CSS/HTML, no JS) -->
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div style="display:flex;align-items:center;gap:8px;border:1px solid #ccc;border-radius:2px;overflow:hidden;">
-          <button class="font-grotesk fw-bold" style="padding:8px 16px;border:none;background:transparent;font-size:18px;cursor:pointer;color:var(--oscuro);" onclick="cambiarCantidad(-1)">−</button>
-          <span id="cantidad-display" class="font-grotesk fw-bold" style="font-size:18px;color:var(--oscuro);min-width:28px;text-align:center;">1</span>
-          <button class="font-grotesk fw-bold" style="padding:8px 16px;border:none;background:transparent;font-size:18px;cursor:pointer;color:var(--oscuro);" onclick="cambiarCantidad(1)">+</button>
-        </div>
-      </div>
+      <h2 class="font-news fw-bold" style="font-size:36px;color:var(--oscuro);margin-bottom:20px;">Perfil</h2>
 
-      <a href="contacto.html" class="btn-gold d-block text-center mb-3" style="max-width:320px;">Agregar al Carrito</a>
-      <a href="cervezas.html" class="font-grotesk" style="font-size:13px;color:#999;letter-spacing:0.05em;">← Volver a Cervezas</a>
-    </div>
-  </div>
-
-  <!-- ══ SECTION 2 — BREW FACTS ══ -->
-  <div style="background:var(--crema);padding:80px 10%;border-top:1px solid rgba(28,26,23,0.1);">
-    <div class="d-flex flex-wrap gap-5">
-
-      <!-- Data table -->
-      <div style="flex:1;min-width:280px;">
-        <h2 class="font-news fw-bold" style="font-size:36px;color:var(--oscuro);margin-bottom:32px;">Datos del Estilo</h2>
-        <div>
-          <div class="d-flex justify-content-between align-items-center py-3">
-            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Estilo</span>
-            <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">Czech Pilsner</span>
-          </div>
-          <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
-          <div class="d-flex justify-content-between align-items-center py-3">
-            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">ABV</span>
-            <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">4.8%</span>
-          </div>
-          <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
-          <div class="d-flex justify-content-between align-items-center py-3">
-            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">IBU</span>
-            <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">25</span>
-          </div>
-          <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
-          <div class="d-flex justify-content-between align-items-center py-3">
-            <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Categoría</span>
-            <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);text-transform:capitalize;">Lagers</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Profile bars -->
-      <div style="flex:1;min-width:280px;">
-        <h2 class="font-news fw-bold" style="font-size:36px;color:var(--oscuro);margin-bottom:32px;">Perfil</h2>
-
-        <div style="margin-bottom:28px;">
+      <div style="max-width:460px; width:100%; margin-bottom:32px;">
+        <div style="margin-bottom:18px;">
           <div class="d-flex justify-content-between mb-2">
             <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Amargor (IBU)</span>
             <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--oscuro);">25</span>
@@ -185,8 +142,7 @@
             <div class="stat-bar-fill" id="bar-ibu" style="width:0%;"></div>
           </div>
         </div>
-
-        <div style="margin-bottom:28px;">
+        <div>
           <div class="d-flex justify-content-between mb-2">
             <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Alcohol (ABV)</span>
             <span class="font-grotesk fw-bold" style="font-size:13px;color:var(--oscuro);">4.8%</span>
@@ -195,14 +151,52 @@
             <div class="stat-bar-fill" id="bar-abv" style="width:0%;"></div>
           </div>
         </div>
+      </div>
 
-        <div class="d-flex justify-content-between align-items-center py-4" style="border-top:1px solid rgba(28,26,23,0.1);margin-top:8px;">
+      <h2 class="font-news fw-bold" style="font-size:36px;color:var(--oscuro);margin-bottom:20px;">Datos del Estilo</h2>
+      <div style="max-width:460px; width:100%; margin-bottom:28px;">
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Estilo</span>
+          <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">Czech Pilsner</span>
+        </div>
+        <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">ABV</span>
+          <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">4.8%</span>
+        </div>
+        <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">IBU</span>
+          <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">25</span>
+        </div>
+        <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Categoría</span>
+          <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);text-transform:capitalize;">Lagers</span>
+        </div>
+        <hr style="border-color:rgba(28,26,23,0.1);margin:0;">
+        <div class="d-flex justify-content-between align-items-center py-3">
           <span class="font-grotesk" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#888;">Disponibilidad</span>
           <span class="font-jakarta" style="font-size:16px;color:var(--oscuro);">Todo el año</span>
         </div>
       </div>
+
+      <p class="font-grotesk" style="font-size:20px;font-weight:500;color:var(--oro);margin-bottom:20px;">4.8% ABV</p>
+      <p class="font-grotesk fw-bold" style="font-size:32px;color:var(--oscuro);margin-bottom:28px;">$2.20</p>
+
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="display:flex;align-items:center;gap:8px;border:1px solid #ccc;border-radius:2px;overflow:hidden;">
+          <button class="font-grotesk fw-bold" style="padding:8px 16px;border:none;background:transparent;font-size:18px;cursor:pointer;color:var(--oscuro);" onclick="cambiarCantidad(-1)">−</button>
+          <span id="cantidad-display" class="font-grotesk fw-bold" style="font-size:18px;color:var(--oscuro);min-width:28px;text-align:center;">1</span>
+          <button class="font-grotesk fw-bold" style="padding:8px 16px;border:none;background:transparent;font-size:18px;cursor:pointer;color:var(--oscuro);" onclick="cambiarCantidad(1)">+</button>
+        </div>
+      </div>
+
+      <a href="cervezas.html" class="btn-outline-dark d-block text-center mb-3" style="max-width:320px;">Ver Cerveza →</a>
+      <a href="contacto.html" class="btn-gold d-block text-center mb-3" style="max-width:320px;">Agregar al Carrito</a>
+      <a href="cervezas.html" class="font-grotesk" style="font-size:13px;color:#999;letter-spacing:0.05em;">← Volver a Cervezas</a>
     </div>
-  </div>
+  </section>
 
   <!-- ══ SECTION 3 — REVIEWS ══ -->
   <div style="background:var(--oscuro);padding:80px 10%;">
@@ -230,49 +224,70 @@
     </div>
   </div>
 
-  <!-- ══ SECTION 4 — SUGGESTIONS ══ -->
-  <div style="background:var(--crema);padding:80px 10%;">
-    <h2 class="font-news fw-bold" style="font-size:36px;color:var(--oscuro);margin-bottom:40px;">También te puede gustar</h2>
-    <div class="row g-4">
+  <section style="background:var(--crema); padding:80px 8%;">
+    <span class="label-tag">TAMBIÉN TE PUEDE GUSTAR</span>
+    <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(2rem,4vw,3rem); color:var(--oscuro); margin-top:8px;">
+      Más de la misma fuente.
+    </h2>
 
-      <!-- Blanche -->
-      <div class="col-12 col-md-6">
-        <a href="cerveza-detalle.html" class="suggested-card d-block text-decoration-none">
-          <div style="height:200px;background:#C49A00;display:flex;align-items:center;justify-content:center;">
-            <div style="background:#A87E00;width:120px;height:200px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:10px;opacity:0.6;">Blanche CAN</span>
-            </div>
+    <div class="row g-4" style="margin-top:48px;">
+      <div class="col-6 col-md-3">
+        <div style="background:white; border:0.5px solid rgba(28,26,23,0.1); border-radius:10px; overflow:visible; position:relative; padding-top:100px; margin-top:60px; text-align:center;">
+          <img src="img/pils.png" alt="PILS" style="position:absolute; top:-60px; left:50%; transform:translateX(-50%) rotate(-5deg); width:120px; height:auto; filter:drop-shadow(0 12px 20px rgba(0,0,0,0.18)); z-index:2;">
+          <div style="padding:16px 20px 24px;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(28,26,23,0.35);">LAGER</span>
+            <h3 class="font-news fst-italic fw-bold" style="font-size:1.2rem; color:var(--oscuro); margin:6px 0 4px;">PILS</h3>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:rgba(28,26,23,0.4);">ABV 4.5%</span>
+            <a href="cerveza-detalle.html" style="display:block; margin-top:16px; font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--oscuro); border:0.5px solid rgba(28,26,23,0.2); border-radius:3px; padding:8px 16px; text-decoration:none;">
+              VER →
+            </a>
           </div>
-          <div style="padding:20px;">
-            <h3 class="font-news fw-bold" style="font-size:24px;color:var(--oscuro);margin-bottom:4px;">Blanche</h3>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="font-grotesk" style="font-size:11px;color:#888;letter-spacing:0.1em;">Witbier</span>
-              <span class="font-grotesk fw-bold" style="font-size:16px;color:var(--oro);">$2.20</span>
-            </div>
-          </div>
-        </a>
+        </div>
       </div>
 
-      <!-- IPA -->
-      <div class="col-12 col-md-6">
-        <a href="cerveza-detalle.html" class="suggested-card d-block text-decoration-none">
-          <div style="height:200px;background:#1A3A0A;display:flex;align-items:center;justify-content:center;">
-            <div style="background:#0E2A04;width:120px;height:200px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
-              <span class="font-grotesk" style="color:var(--crema);font-size:10px;opacity:0.6;">IPA CAN</span>
-            </div>
+      <div class="col-6 col-md-3">
+        <div style="background:white; border:0.5px solid rgba(28,26,23,0.1); border-radius:10px; overflow:visible; position:relative; padding-top:100px; margin-top:60px; text-align:center;">
+          <img src="img/pale_ale.png" alt="Pale Ale" style="position:absolute; top:-60px; left:50%; transform:translateX(-50%) rotate(4deg); width:120px; height:auto; filter:drop-shadow(0 12px 20px rgba(0,0,0,0.18)); z-index:2;">
+          <div style="padding:16px 20px 24px;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(28,26,23,0.35);">ALE</span>
+            <h3 class="font-news fst-italic fw-bold" style="font-size:1.2rem; color:var(--oscuro); margin:6px 0 4px;">Pale Ale</h3>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:rgba(28,26,23,0.4);">ABV 5.0%</span>
+            <a href="cerveza-detalle.html" style="display:block; margin-top:16px; font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--oscuro); border:0.5px solid rgba(28,26,23,0.2); border-radius:3px; padding:8px 16px; text-decoration:none;">
+              VER →
+            </a>
           </div>
-          <div style="padding:20px;">
-            <h3 class="font-news fw-bold" style="font-size:24px;color:var(--oscuro);margin-bottom:4px;">IPA</h3>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="font-grotesk" style="font-size:11px;color:#888;letter-spacing:0.1em;">American IPA</span>
-              <span class="font-grotesk fw-bold" style="font-size:16px;color:var(--oro);">$2.20</span>
-            </div>
-          </div>
-        </a>
+        </div>
       </div>
 
+      <div class="col-6 col-md-3">
+        <div style="background:white; border:0.5px solid rgba(28,26,23,0.1); border-radius:10px; overflow:visible; position:relative; padding-top:100px; margin-top:60px; text-align:center;">
+          <img src="img/porter.png" alt="Porter" style="position:absolute; top:-60px; left:50%; transform:translateX(-50%) rotate(-4deg); width:120px; height:auto; filter:drop-shadow(0 12px 20px rgba(0,0,0,0.18)); z-index:2;">
+          <div style="padding:16px 20px 24px;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(28,26,23,0.35);">PORTER</span>
+            <h3 class="font-news fst-italic fw-bold" style="font-size:1.2rem; color:var(--oscuro); margin:6px 0 4px;">Porter</h3>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:rgba(28,26,23,0.4);">ABV 5.5%</span>
+            <a href="cerveza-detalle.html" style="display:block; margin-top:16px; font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--oscuro); border:0.5px solid rgba(28,26,23,0.2); border-radius:3px; padding:8px 16px; text-decoration:none;">
+              VER →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div style="background:white; border:0.5px solid rgba(28,26,23,0.1); border-radius:10px; overflow:visible; position:relative; padding-top:100px; margin-top:60px; text-align:center;">
+          <img src="img/ipa.png" alt="IPA" style="position:absolute; top:-60px; left:50%; transform:translateX(-50%) rotate(5deg); width:120px; height:auto; filter:drop-shadow(0 12px 20px rgba(0,0,0,0.18)); z-index:2;">
+          <div style="padding:16px 20px 24px;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(28,26,23,0.35);">IPA</span>
+            <h3 class="font-news fst-italic fw-bold" style="font-size:1.2rem; color:var(--oscuro); margin:6px 0 4px;">IPA</h3>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:rgba(28,26,23,0.4);">ABV 6.5%</span>
+            <a href="cerveza-detalle.html" style="display:block; margin-top:16px; font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--oscuro); border:0.5px solid rgba(28,26,23,0.2); border-radius:3px; padding:8px 16px; text-decoration:none;">
+              VER →
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- ══ PIE DE PAGINA ══ -->
   <footer>
