@@ -9,24 +9,91 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Auditoria Bootstrap: clases usadas y su proposito -->
+  <!-- align-items-baseline: alineacion vertical flex -->
+  <!-- align-items-center: alineacion vertical flex -->
+  <!-- border-0: bordes utilitarios -->
+  <!-- btn-close: boton Bootstrap -->
+  <!-- btn-close-white: boton Bootstrap -->
+  <!-- col-12: columna de grilla -->
+  <!-- col-6: columna de grilla -->
+  <!-- collapse: columna de grilla -->
+  <!-- col-md-2: columna de grilla -->
+  <!-- col-md-4: columna de grilla -->
+  <!-- container-fluid: contenedor responsivo -->
+  <!-- d-block: utilidad de display -->
+  <!-- d-flex: utilidad de display -->
+  <!-- fixed-top: barra fija/pegajosa -->
+  <!-- gap-2: utilidad Bootstrap -->
+  <!-- gap-3: utilidad Bootstrap -->
+  <!-- justify-content-between: alineacion horizontal flex -->
+  <!-- mb-3: espaciado utilitario -->
+  <!-- mb-4: espaciado utilitario -->
+  <!-- modal: ventana modal -->
+  <!-- modal-content: ventana modal -->
+  <!-- modal-dialog: ventana modal -->
+  <!-- modal-dialog-centered: ventana modal -->
+  <!-- mt-2: espaciado utilitario -->
+  <!-- mt-5: espaciado utilitario -->
+  <!-- mx-auto: espaciado utilitario -->
+  <!-- nav: navegacion Bootstrap -->
+  <!-- navbar: navegacion Bootstrap -->
+  <!-- navbar-brand: navegacion Bootstrap -->
+  <!-- navbar-collapse: navegacion Bootstrap -->
+  <!-- navbar-expand-lg: navegacion Bootstrap -->
+  <!-- navbar-nav: navegacion Bootstrap -->
+  <!-- navbar-toggler: navegacion Bootstrap -->
+  <!-- nav-item: navegacion Bootstrap -->
+  <!-- nav-link: navegacion Bootstrap -->
+  <!-- nav-tabs: navegacion Bootstrap -->
+  <!-- offcanvas: panel lateral -->
+  <!-- offcanvas-body: panel lateral -->
+  <!-- offcanvas-end: panel lateral -->
+  <!-- offcanvas-header: panel lateral -->
+  <!-- position-absolute: posicionamiento utilitario -->
+  <!-- position-relative: posicionamiento utilitario -->
+  <!-- pt-4: espaciado utilitario -->
+  <!-- px-4: espaciado utilitario -->
+  <!-- py-2: espaciado utilitario -->
+  <!-- py-3: espaciado utilitario -->
+  <!-- row: fila de grilla -->
+  <!-- shadow-none: sombras utilitarias -->
+  <!-- text-center: utilidad de texto -->
 </head>
 <body>
 
   <!-- ══ BARRA DE NAVEGACION ══ -->
+      <!-- Bootstrap: navbar -> navegacion Bootstrap -->
+      <!-- Bootstrap: fixed-top -> barra fija/pegajosa -->
+      <!-- Bootstrap: navbar-expand-lg -> navegacion Bootstrap -->
   <nav class="navbar navbar-expand-lg fixed-top"
        style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+      <!-- Bootstrap: px-4 -> espaciado utilitario -->
+      <!-- Bootstrap: container-fluid -> contenedor responsivo -->
     <div class="container-fluid px-4">
+      <!-- Bootstrap: navbar-brand -> navegacion Bootstrap -->
       <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
          style="color:var(--crema); font-size:1.4rem; letter-spacing:-0.01em;">
         <img src="img/logo.png" alt="La Rana Dorada" style="height:36px;width:auto;">
       </a>
+      <!-- Bootstrap: shadow-none -> sombras utilitarias -->
+      <!-- Bootstrap: navbar-toggler -> navegacion Bootstrap -->
+      <!-- Bootstrap: border-0 -> bordes utilitarios -->
       <button class="navbar-toggler border-0 shadow-none" type="button"
               data-bs-toggle="collapse" data-bs-target="#navMain"
               style="color:var(--crema);">
         <i class="bi bi-list" style="font-size:1.5rem;"></i>
       </button>
+      <!-- Bootstrap: collapse -> columna de grilla -->
+      <!-- Bootstrap: navbar-collapse -> navegacion Bootstrap -->
       <div class="collapse navbar-collapse" id="navMain">
+      <!-- Bootstrap: navbar-nav -> navegacion Bootstrap -->
+      <!-- Bootstrap: gap-2 -> utilidad Bootstrap -->
+      <!-- Bootstrap: py-3 -> espaciado utilitario -->
+      <!-- Bootstrap: mx-auto -> espaciado utilitario -->
         <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+      <!-- Bootstrap: nav-item -> navegacion Bootstrap -->
+      <!-- Bootstrap: nav-link -> navegacion Bootstrap -->
           <li class="nav-item"><a class="nav-link font-grotesk nav-link-active" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;" href="cervezas.html">Cervezas</a></li>
           <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="cerveceria.html">Cervecería</a></li>
           <li class="nav-item"><a class="nav-link font-grotesk" style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);" href="locales.html">Locales</a></li>
@@ -39,7 +106,12 @@
       href="sodabahia.html">Soda Bahía</a>
   </li>
         </ul>
+      <!-- Bootstrap: py-2 -> espaciado utilitario -->
+      <!-- Bootstrap: align-items-center -> alineacion vertical flex -->
+      <!-- Bootstrap: d-flex -> utilidad de display -->
+      <!-- Bootstrap: gap-3 -> utilidad Bootstrap -->
         <div class="d-flex align-items-center gap-3 py-2 py-lg-0">
+      <!-- Bootstrap: position-relative -> posicionamiento utilitario -->
           <button class="nav-icon-btn position-relative" type="button"
                   data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">
             <i class="bi bi-bag" style="font-size:1.1rem;"></i>
@@ -72,6 +144,9 @@
         <span class="style-tag">Witbier</span>
         <h2 class="font-news fst-italic fw-bold" style="font-size:clamp(36px,4vw,56px);color:var(--oscuro);line-height:1;margin-bottom:12px;">Blanche</h2>
         <p class="font-jakarta fst-italic" style="font-size:15px;color:#666;margin-bottom:24px;line-height:1.6;">cítrico · floral · suave</p>
+      <!-- Bootstrap: mb-4 -> espaciado utilitario -->
+      <!-- Bootstrap: justify-content-between -> alineacion horizontal flex -->
+      <!-- Bootstrap: align-items-baseline -> alineacion vertical flex -->
         <div class="d-flex justify-content-between align-items-baseline mb-4">
           <span class="font-grotesk" style="font-size:13px;color:#999;">ABV 4.5% · IBU 15</span>
           <span class="font-grotesk fw-bold" style="font-size:28px;color:var(--oro);">$2.20</span>
@@ -273,11 +348,16 @@
 
   <!-- ══ PIE DE PAGINA ══ -->
   <footer>
+      <!-- Bootstrap: row -> fila de grilla -->
     <div class="row g-4">
+      <!-- Bootstrap: col-md-4 -> columna de grilla -->
+      <!-- Bootstrap: col-12 -> columna de grilla -->
       <div class="col-12 col-md-4">
         <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--crema);margin-bottom:12px;">La Rana Dorada</p>
         <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
       </div>
+      <!-- Bootstrap: col-6 -> columna de grilla -->
+      <!-- Bootstrap: col-md-2 -> columna de grilla -->
       <div class="col-6 col-md-2 offset-md-2">
         <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">Navegación</p>
         <div class="d-flex flex-column gap-2">
@@ -290,6 +370,8 @@
         </div>
       </div>
     </div>
+      <!-- Bootstrap: pt-4 -> espaciado utilitario -->
+      <!-- Bootstrap: mt-5 -> espaciado utilitario -->
     <div class="d-flex justify-content-between align-items-center mt-5 pt-4" style="border-top:1px solid rgba(245,237,214,0.06);">
       <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">© 2025 La Rana Dorada. Todos los derechos reservados.</p>
       <p class="font-grotesk" style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,237,214,0.2);margin:0;">Bebe con responsabilidad.</p>
@@ -297,26 +379,43 @@
   </footer>
 
   <!-- ══ CARRITO LATERAL ══ -->
+      <!-- Bootstrap: offcanvas-end -> panel lateral -->
+      <!-- Bootstrap: offcanvas -> panel lateral -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel" style="width:380px; background:var(--crema); border-left:0.5px solid rgba(28,26,23,0.1);">
+      <!-- Bootstrap: offcanvas-header -> panel lateral -->
     <div class="offcanvas-header" style="border-bottom:1px solid rgba(28,26,23,0.08); padding:24px 28px;">
       <div><span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.4); display:block; margin-bottom:4px;">TU PEDIDO</span><h5 id="cartDrawerLabel" style="font-family:'Newsreader',serif; font-style:italic; font-weight:700; font-size:1.4rem; color:var(--oscuro); margin:0;">Carrito</h5></div>
+      <!-- Bootstrap: btn-close -> boton Bootstrap -->
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="filter:invert(0.3);"></button>
     </div>
+      <!-- Bootstrap: offcanvas-body -> panel lateral -->
     <div class="offcanvas-body" style="padding:0; display:flex; flex-direction:column;">
       <div style="flex:1; overflow-y:auto; padding:8px 0;">
         <div class="cart-item"><div class="cart-item-color" style="background:#2A1008;"></div><div class="cart-item-info"><span class="cart-item-name">Pedro Mandinga Red Ale</span><span class="cart-item-variant">Lata 473ml</span></div><div class="cart-item-right"><span class="cart-item-price">$3.50</span><div class="cart-cantidad"><span class="cart-cantidad-btn">−</span><span class="cart-cantidad-num">1</span><span class="cart-cantidad-btn">+</span></div></div></div>
         <div class="cart-item"><div class="cart-item-color" style="background:#E8A200;"></div><div class="cart-item-info"><span class="cart-item-name">Golden Ale</span><span class="cart-item-variant">Lata 473ml × 6-Pack</span></div><div class="cart-item-right"><span class="cart-item-price">$18.00</span><div class="cart-cantidad"><span class="cart-cantidad-btn">−</span><span class="cart-cantidad-num">1</span><span class="cart-cantidad-btn">+</span></div></div></div>
       </div>
       <div style="padding:16px 24px; border-top:1px solid rgba(28,26,23,0.07); border-bottom:1px solid rgba(28,26,23,0.07);"><span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.35); display:block; margin-bottom:8px;">NOTA (OPCIONAL)</span><textarea rows="2" placeholder="Instrucciones especiales..." style="width:100%; background:#FAFAF7; border:0.5px solid rgba(28,26,23,0.12); border-radius:4px; padding:10px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem; color:var(--oscuro); resize:none; outline:none;"></textarea></div>
+      <!-- Bootstrap: mt-2 -> espaciado utilitario -->
+      <!-- Bootstrap: mb-3 -> espaciado utilitario -->
+      <!-- Bootstrap: text-center -> utilidad de texto -->
+      <!-- Bootstrap: d-block -> utilidad de display -->
       <div style="padding:24px 28px;"><div class="d-flex justify-content-between align-items-baseline mb-3"><span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.4);">SUBTOTAL</span><span style="font-family:'Newsreader',serif; font-weight:700; font-size:1.4rem; color:var(--oscuro);">$21.50</span></div><a href="#" class="d-block text-center" style="background:var(--oscuro); color:var(--crema); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:16px; border-radius:3px; text-decoration:none;">PROCEDER AL PAGO →</a><a href="#" class="d-block text-center mt-2" style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.35); text-decoration:none; padding:8px;">SEGUIR COMPRANDO</a></div>
     </div>
   </div>
 
   <!-- ══ MODAL DE AUTENTICACION ══ -->
+      <!-- Bootstrap: modal -> ventana modal -->
   <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+      <!-- Bootstrap: modal-dialog -> ventana modal -->
+      <!-- Bootstrap: modal-dialog-centered -> ventana modal -->
     <div class="modal-dialog modal-dialog-centered" style="max-width:440px;">
+      <!-- Bootstrap: modal-content -> ventana modal -->
       <div class="modal-content" style="background:var(--crema); border:0.5px solid rgba(28,26,23,0.12); border-radius:8px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.12);">
+      <!-- Bootstrap: position-absolute -> posicionamiento utilitario -->
+      <!-- Bootstrap: btn-close-white -> boton Bootstrap -->
         <div style="background:var(--oscuro); padding:32px 36px 0; position:relative;"><button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" style="top:16px; right:16px; opacity:0.5;"></button><span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--oro); display:block; margin-bottom:8px;">LA RANA DORADA</span><h2 style="font-family:'Newsreader',serif; font-style:italic; font-weight:700; font-size:1.8rem; color:var(--crema); margin-bottom:24px;">Tu cuenta</h2>
+      <!-- Bootstrap: nav-tabs -> navegacion Bootstrap -->
+      <!-- Bootstrap: nav -> navegacion Bootstrap -->
           <ul class="nav nav-tabs border-0 gap-3" role="tablist"><li class="nav-item" role="presentation"><button class="auth-tab active" data-bs-toggle="tab" data-bs-target="#loginPanel" type="button" role="tab">Iniciar Sesión</button></li><li class="nav-item" role="presentation"><button class="auth-tab" data-bs-toggle="tab" data-bs-target="#registerPanel" type="button" role="tab">Registrarse</button></li></ul>
         </div>
         <div class="tab-content" style="padding:32px 36px;">
@@ -331,4 +430,5 @@
 
 </body>
 </html>
+
 

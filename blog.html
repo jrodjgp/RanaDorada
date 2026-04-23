@@ -14,7 +14,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Blog card hover */
+    /* Efecto hover de tarjeta de blog */
     .blog-card {
       transition: transform 0.2s ease;
     }
@@ -32,24 +32,97 @@
       overflow: hidden;
     }
   </style>
+  <!-- Auditoria Bootstrap: clases usadas y su proposito -->
+  <!-- align-items-baseline: alineacion vertical flex -->
+  <!-- align-items-center: alineacion vertical flex -->
+  <!-- align-items-stretch: alineacion vertical flex -->
+  <!-- border-0: bordes utilitarios -->
+  <!-- btn-close: boton Bootstrap -->
+  <!-- btn-close-white: boton Bootstrap -->
+  <!-- col-12: columna de grilla -->
+  <!-- col-6: columna de grilla -->
+  <!-- collapse: columna de grilla -->
+  <!-- col-lg-6: columna de grilla -->
+  <!-- col-md-2: columna de grilla -->
+  <!-- col-md-4: columna de grilla -->
+  <!-- col-md-6: columna de grilla -->
+  <!-- container-fluid: contenedor responsivo -->
+  <!-- d-block: utilidad de display -->
+  <!-- d-flex: utilidad de display -->
+  <!-- fixed-top: barra fija/pegajosa -->
+  <!-- gap-2: utilidad Bootstrap -->
+  <!-- gap-3: utilidad Bootstrap -->
+  <!-- h-100: dimension utilitaria -->
+  <!-- justify-content-between: alineacion horizontal flex -->
+  <!-- justify-content-center: alineacion horizontal flex -->
+  <!-- mb-3: espaciado utilitario -->
+  <!-- mb-4: espaciado utilitario -->
+  <!-- modal: ventana modal -->
+  <!-- modal-content: ventana modal -->
+  <!-- modal-dialog: ventana modal -->
+  <!-- modal-dialog-centered: ventana modal -->
+  <!-- mt-2: espaciado utilitario -->
+  <!-- mt-4: espaciado utilitario -->
+  <!-- mt-5: espaciado utilitario -->
+  <!-- mx-auto: espaciado utilitario -->
+  <!-- nav: navegacion Bootstrap -->
+  <!-- navbar: navegacion Bootstrap -->
+  <!-- navbar-brand: navegacion Bootstrap -->
+  <!-- navbar-collapse: navegacion Bootstrap -->
+  <!-- navbar-expand-lg: navegacion Bootstrap -->
+  <!-- navbar-nav: navegacion Bootstrap -->
+  <!-- navbar-toggler: navegacion Bootstrap -->
+  <!-- nav-item: navegacion Bootstrap -->
+  <!-- nav-link: navegacion Bootstrap -->
+  <!-- nav-tabs: navegacion Bootstrap -->
+  <!-- offcanvas: panel lateral -->
+  <!-- offcanvas-body: panel lateral -->
+  <!-- offcanvas-end: panel lateral -->
+  <!-- offcanvas-header: panel lateral -->
+  <!-- position-absolute: posicionamiento utilitario -->
+  <!-- position-relative: posicionamiento utilitario -->
+  <!-- pt-4: espaciado utilitario -->
+  <!-- px-4: espaciado utilitario -->
+  <!-- py-2: espaciado utilitario -->
+  <!-- py-3: espaciado utilitario -->
+  <!-- row: fila de grilla -->
+  <!-- shadow-none: sombras utilitarias -->
+  <!-- text-center: utilidad de texto -->
 </head>
 
 <body style="background:var(--oscuro);">
 
   <!-- ══ BARRA DE NAVEGACION ══ -->
+      <!-- Bootstrap: fixed-top -> barra fija/pegajosa -->
+      <!-- Bootstrap: navbar-expand-lg -> navegacion Bootstrap -->
+      <!-- Bootstrap: navbar -> navegacion Bootstrap -->
   <nav class="navbar navbar-expand-lg fixed-top"
     style="background: rgba(28,26,23,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,237,214,0.06);">
+      <!-- Bootstrap: px-4 -> espaciado utilitario -->
+      <!-- Bootstrap: container-fluid -> contenedor responsivo -->
     <div class="container-fluid px-4">
+      <!-- Bootstrap: navbar-brand -> navegacion Bootstrap -->
       <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
         style="color:var(--crema); font-size:1.4rem; letter-spacing:-0.01em;">
         La Rana Dorada
       </a>
+      <!-- Bootstrap: navbar-toggler -> navegacion Bootstrap -->
+      <!-- Bootstrap: border-0 -> bordes utilitarios -->
+      <!-- Bootstrap: shadow-none -> sombras utilitarias -->
       <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
         data-bs-target="#navMain" style="color:var(--crema);">
         <i class="bi bi-list" style="font-size:1.5rem;"></i>
       </button>
+      <!-- Bootstrap: collapse -> columna de grilla -->
+      <!-- Bootstrap: navbar-collapse -> navegacion Bootstrap -->
       <div class="collapse navbar-collapse" id="navMain">
+      <!-- Bootstrap: py-3 -> espaciado utilitario -->
+      <!-- Bootstrap: navbar-nav -> navegacion Bootstrap -->
+      <!-- Bootstrap: mx-auto -> espaciado utilitario -->
+      <!-- Bootstrap: gap-2 -> utilidad Bootstrap -->
         <ul class="navbar-nav mx-auto gap-lg-4 gap-2 py-3 py-lg-0">
+      <!-- Bootstrap: nav-item -> navegacion Bootstrap -->
+      <!-- Bootstrap: nav-link -> navegacion Bootstrap -->
           <li class="nav-item"><a class="nav-link font-grotesk"
               style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,237,214,0.75);"
               href="cervezas.html">Cervezas</a></li>
@@ -72,7 +145,12 @@
               text-transform:uppercase; color:#29C4D8;" href="sodabahia.html">Soda Bahía</a>
           </li>
         </ul>
+      <!-- Bootstrap: align-items-center -> alineacion vertical flex -->
+      <!-- Bootstrap: py-2 -> espaciado utilitario -->
+      <!-- Bootstrap: gap-3 -> utilidad Bootstrap -->
+      <!-- Bootstrap: d-flex -> utilidad de display -->
         <div class="d-flex align-items-center gap-3 py-2 py-lg-0">
+      <!-- Bootstrap: position-relative -> posicionamiento utilitario -->
           <button class="nav-icon-btn position-relative" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#cartDrawer" aria-controls="cartDrawer">
             <i class="bi bi-bag" style="font-size:1.1rem;"></i>
@@ -103,10 +181,14 @@
 
     <!-- ── CARD PRINCIPAL (PILS → ORO) ── -->
     <article class="blog-card">
+      <!-- Bootstrap: align-items-stretch -> alineacion vertical flex -->
+      <!-- Bootstrap: row -> fila de grilla -->
       <div class="row g-0 align-items-stretch"
         style="border:0.5px solid rgba(28,26,23,0.1);border-radius:8px;overflow:hidden;">
 
         <!-- Imagen placeholder izquierda -->
+      <!-- Bootstrap: col-12 -> columna de grilla -->
+      <!-- Bootstrap: col-lg-6 -> columna de grilla -->
         <div class="col-12 col-lg-6">
           <div style="height:400px;background:#2A3A1A;display:flex;align-items:center;justify-content:center;">
             <img src="img/blog_foto_galardon.png" alt="La PILS de La Rana Dorada conquista el ORO"
@@ -115,6 +197,7 @@
         </div>
 
         <!-- Texto derecha -->
+      <!-- Bootstrap: justify-content-center -> alineacion horizontal flex -->
         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center" style="padding:48px;">
           <span class="label-tag" style="margin-bottom:12px;">GALARDONES</span>
           <h2 class="font-news fst-italic fw-bold"
@@ -165,10 +248,13 @@
     </div>
 
     <!-- ── GRID SECUNDARIO (4 CARDS 2×2) ── -->
+      <!-- Bootstrap: mt-4 -> espaciado utilitario -->
     <div class="row g-4 mt-4">
 
       <!-- [2] Whisky -->
+      <!-- Bootstrap: col-md-6 -> columna de grilla -->
       <div class="col-12 col-md-6">
+      <!-- Bootstrap: h-100 -> dimension utilitaria -->
         <article class="blog-card h-100">
           <!-- Imagen placeholder -->
           <div
@@ -186,6 +272,7 @@
             Después de 11 años produciendo cerveza artesanal, hoy traemos el PRIMER SINGLE MALT 10 años de reposo en
             barricas de roble panameño. Un destilado que lleva el alma del trópico en cada sorbo.
           </p>
+      <!-- Bootstrap: d-block -> utilidad de display -->
           <a href="#" class="font-grotesk d-block"
             style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--oro);margin-top:16px;">Leer
             →</a>
@@ -273,12 +360,15 @@
   <!-- ══ PIE DE PAGINA ══ -->
   <footer>
     <div class="row g-4">
+      <!-- Bootstrap: col-md-4 -> columna de grilla -->
       <div class="col-12 col-md-4">
         <p class="font-news fst-italic fw-bold" style="font-size:1.4rem;color:var(--crema);margin-bottom:12px;">La Rana
           Dorada</p>
         <p class="font-jakarta" style="font-size:13px;color:rgba(245,237,214,0.4);line-height:1.7;">La primera
           cervecería artesanal de Panamá.<br>Est. 2010 · Ciudad de Panamá.</p>
       </div>
+      <!-- Bootstrap: col-md-2 -> columna de grilla -->
+      <!-- Bootstrap: col-6 -> columna de grilla -->
       <div class="col-6 col-md-2 offset-md-2">
         <p class="font-grotesk"
           style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,237,214,0.3);margin-bottom:16px;">
@@ -293,6 +383,9 @@
         </div>
       </div>
     </div>
+      <!-- Bootstrap: mt-5 -> espaciado utilitario -->
+      <!-- Bootstrap: pt-4 -> espaciado utilitario -->
+      <!-- Bootstrap: justify-content-between -> alineacion horizontal flex -->
     <div class="d-flex justify-content-between align-items-center mt-5 pt-4"
       style="border-top:1px solid rgba(245,237,214,0.06);">
       <p class="font-grotesk"
@@ -305,8 +398,11 @@
   </footer>
 
   <!-- ══ CARRITO LATERAL ══ -->
+      <!-- Bootstrap: offcanvas -> panel lateral -->
+      <!-- Bootstrap: offcanvas-end -> panel lateral -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel"
     style="width:380px; background:var(--crema); border-left:0.5px solid rgba(28,26,23,0.1);">
+      <!-- Bootstrap: offcanvas-header -> panel lateral -->
     <div class="offcanvas-header" style="border-bottom:1px solid rgba(28,26,23,0.08); padding:24px 28px;">
       <div><span
           style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(28,26,23,0.4); display:block; margin-bottom:4px;">TU
@@ -315,8 +411,10 @@
           style="font-family:'Newsreader',serif; font-style:italic; font-weight:700; font-size:1.4rem; color:var(--oscuro); margin:0;">
           Carrito</h5>
       </div>
+      <!-- Bootstrap: btn-close -> boton Bootstrap -->
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="filter:invert(0.3);"></button>
     </div>
+      <!-- Bootstrap: offcanvas-body -> panel lateral -->
     <div class="offcanvas-body" style="padding:0; display:flex; flex-direction:column;">
       <div style="flex:1; overflow-y:auto; padding:8px 0;">
         <div class="cart-item">
@@ -346,11 +444,15 @@
           style="width:100%; background:#FAFAF7; border:0.5px solid rgba(28,26,23,0.12); border-radius:4px; padding:10px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem; color:var(--oscuro); resize:none; outline:none;"></textarea>
       </div>
       <div style="padding:24px 28px;">
+      <!-- Bootstrap: align-items-baseline -> alineacion vertical flex -->
+      <!-- Bootstrap: mb-3 -> espaciado utilitario -->
         <div class="d-flex justify-content-between align-items-baseline mb-3"><span
             style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.4);">SUBTOTAL</span><span
             style="font-family:'Newsreader',serif; font-weight:700; font-size:1.4rem; color:var(--oscuro);">$21.50</span>
+      <!-- Bootstrap: text-center -> utilidad de texto -->
         </div><a href="#" class="d-block text-center"
           style="background:var(--oscuro); color:var(--crema); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:16px; border-radius:3px; text-decoration:none;">PROCEDER
+      <!-- Bootstrap: mt-2 -> espaciado utilitario -->
           AL PAGO →</a><a href="#" class="d-block text-center mt-2"
           style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(28,26,23,0.35); text-decoration:none; padding:8px;">SEGUIR
           COMPRANDO</a>
@@ -359,11 +461,17 @@
   </div>
 
   <!-- ══ MODAL DE AUTENTICACION ══ -->
+      <!-- Bootstrap: modal -> ventana modal -->
   <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+      <!-- Bootstrap: modal-dialog -> ventana modal -->
+      <!-- Bootstrap: modal-dialog-centered -> ventana modal -->
     <div class="modal-dialog modal-dialog-centered" style="max-width:440px;">
+      <!-- Bootstrap: modal-content -> ventana modal -->
       <div class="modal-content"
         style="background:var(--crema); border:0.5px solid rgba(28,26,23,0.12); border-radius:8px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.12);">
         <div style="background:var(--oscuro); padding:32px 36px 0; position:relative;"><button type="button"
+      <!-- Bootstrap: position-absolute -> posicionamiento utilitario -->
+      <!-- Bootstrap: btn-close-white -> boton Bootstrap -->
             class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal"
             style="top:16px; right:16px; opacity:0.5;"></button><span
             style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--oro); display:block; margin-bottom:8px;">LA
@@ -371,6 +479,8 @@
           <h2
             style="font-family:'Newsreader',serif; font-style:italic; font-weight:700; font-size:1.8rem; color:var(--crema); margin-bottom:24px;">
             Tu cuenta</h2>
+      <!-- Bootstrap: nav -> navegacion Bootstrap -->
+      <!-- Bootstrap: nav-tabs -> navegacion Bootstrap -->
           <ul class="nav nav-tabs border-0 gap-3" role="tablist">
             <li class="nav-item" role="presentation"><button class="auth-tab active" data-bs-toggle="tab"
                 data-bs-target="#loginPanel" type="button" role="tab">Iniciar Sesión</button></li>
@@ -380,6 +490,7 @@
         </div>
         <div class="tab-content" style="padding:32px 36px;">
           <div class="tab-pane fade show active" id="loginPanel" role="tabpanel">
+      <!-- Bootstrap: mb-4 -> espaciado utilitario -->
             <div class="mb-4"><label class="auth-label">Correo electrónico</label><input type="email" class="auth-input"
                 placeholder="tu@email.com"></div>
             <div class="mb-4"><label class="auth-label">Contraseña</label><input type="password" class="auth-input"
