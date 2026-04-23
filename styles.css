@@ -1258,32 +1258,54 @@ body { background: var(--oscuro); }
 
 /* ── nosotros.html ── */
 /* ── Esencia card hover ── */
+.esencia-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
 .esencia-card {
   position: relative;
-  height: 400px;
   overflow: hidden;
+  display: block;
+  width: 100%;
 }
 .esencia-inner {
-  position: absolute;
-  inset: 0;
+  display: block;
+  width: 100%;
   transition: transform 0.5s ease;
+}
+.esencia-inner img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .esencia-card:hover .esencia-inner {
   transform: scale(1.04);
 }
 .esencia-gradient {
   position: absolute;
-  bottom: 0;
-  height: 60%;
   inset: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75) 0%,
+    rgba(0,0,0,0.0) 50%
+  );
   pointer-events: none;
 }
 .esencia-label {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
+  bottom: 20px;
+  left: 20px;
+  top: auto;
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .esencia-grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── profile.html ── */
