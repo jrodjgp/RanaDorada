@@ -9,6 +9,299 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --dark: var(--oscuro);
+      --gold: var(--oro);
+      --cream: var(--crema);
+    }
+
+    .loc-magazine {
+      background: var(--dark);
+      padding: 0;
+    }
+
+    .loc-row-2col,
+    .loc-row-3col,
+    .loc-row-asymmetric,
+    .loc-row-strip {
+      display: flex;
+      width: 100%;
+    }
+
+    .loc-panel {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .loc-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .loc-panel:hover img {
+      transform: scale(1.04);
+    }
+
+    .loc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.2) 55%,
+        transparent 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px 36px;
+    }
+
+    .loc-overlay-hero {
+      padding: 48px;
+    }
+
+    .loc-badge {
+      display: inline-block;
+      width: fit-content;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .loc-badge-flagship {
+      background: var(--gold);
+      color: var(--dark);
+      border: 1px solid var(--gold);
+    }
+
+    .loc-badge-nuevo {
+      background: var(--dark);
+      color: var(--cream);
+      border: 1px solid var(--cream);
+    }
+
+    .loc-badge-tap {
+      background: var(--gold);
+      color: var(--dark);
+      border: 1px solid var(--gold);
+    }
+
+    .loc-name {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.05;
+      margin: 0 0 8px;
+    }
+
+    .loc-name-hero {
+      font-size: 52px;
+      line-height: 1;
+    }
+
+    .loc-name-lg {
+      font-size: 36px;
+    }
+
+    .loc-name-md {
+      font-size: 28px;
+    }
+
+    .loc-name-strip {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .loc-address {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(245, 237, 214, 0.5);
+      margin: 0 0 16px;
+    }
+
+    .loc-address-hero {
+      margin-top: 8px;
+    }
+
+    .loc-address-strip {
+      font-size: 13px;
+      color: rgba(245, 237, 214, 0.4);
+      margin: 0 0 12px;
+    }
+
+    .loc-meta {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(245, 237, 214, 0.4);
+      margin: 0 0 12px;
+    }
+
+    .loc-btn-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .loc-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 0.5px solid rgba(245, 237, 214, 0.3);
+      color: var(--cream);
+      padding: 7px 14px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .loc-btn:hover {
+      background: rgba(245, 237, 214, 0.1);
+      color: var(--cream);
+    }
+
+    .loc-btn-waze {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .loc-btn-waze:hover {
+      background: rgba(232, 162, 0, 0.1);
+      color: var(--gold);
+    }
+
+    .loc-btn-small {
+      font-size: 0.55rem;
+      padding: 6px 11px;
+    }
+
+    .loc-row-hero {
+      height: 70vh;
+      min-height: 460px;
+    }
+
+    .loc-row-2col {
+      height: 50vh;
+      min-height: 360px;
+    }
+
+    .loc-row-3col,
+    .loc-row-asymmetric {
+      height: 45vh;
+      min-height: 320px;
+    }
+
+    .loc-row-5 {
+      height: 40vh;
+      min-height: 280px;
+    }
+
+    .loc-strip {
+      background: #111;
+      padding: 48px 8%;
+      border-top: 1px solid rgba(245, 237, 214, 0.08);
+    }
+
+    .loc-strip-item {
+      flex: 1;
+      min-width: 0;
+      padding: 0 28px;
+    }
+
+    .loc-strip-item:first-child {
+      padding-left: 0;
+    }
+
+    .loc-strip-item:last-child {
+      padding-right: 0;
+    }
+
+    .loc-strip-item + .loc-strip-item {
+      border-left: 1px solid rgba(245, 237, 214, 0.18);
+    }
+
+    @media (max-width: 1024px) {
+      .loc-name-hero {
+        font-size: 44px;
+      }
+
+      .loc-name-lg {
+        font-size: 32px;
+      }
+
+      .loc-name-md {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .loc-row-2col,
+      .loc-row-3col,
+      .loc-row-asymmetric,
+      .loc-row-strip {
+        flex-direction: column !important;
+      }
+
+      .loc-row-asymmetric .loc-panel {
+        flex: 1 1 auto !important;
+        max-width: 100% !important;
+      }
+
+      .loc-panel {
+        height: 55vw !important;
+        min-height: 220px;
+      }
+
+      .loc-row-hero {
+        height: auto;
+        min-height: unset;
+      }
+
+      .loc-overlay,
+      .loc-overlay-hero {
+        padding: 28px 22px;
+      }
+
+      .loc-name-hero {
+        font-size: 34px;
+      }
+
+      .loc-name-lg {
+        font-size: 28px;
+      }
+
+      .loc-name-md {
+        font-size: 22px;
+      }
+
+      .loc-strip {
+        padding: 40px 8%;
+      }
+
+      .loc-strip-item {
+        padding: 20px 0;
+      }
+
+      .loc-strip-item + .loc-strip-item {
+        border-left: none;
+        border-top: 1px solid rgba(245, 237, 214, 0.18);
+      }
+    }
+  </style>
 </head>
 <body style="background:var(--oscuro);">
 
@@ -64,331 +357,172 @@
   </header>
 
   <!-- ══ UBICACIONES ══ -->
-  <main style="background:var(--crema);padding:64px 8%;">
+  <main class="loc-magazine">
 
-    <!-- ── Zona: Centro / Histórica ── -->
-    <div class="zone-title">Centro / Histórica</div>
-    <div class="row g-4 mb-5">
-
-      <!-- Casco Antiguo -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_casco_viejo.jpg" alt="La Rana Dorada Casco Antiguo" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <div class="d-flex align-items-start justify-content-between gap-2 mb-2">
-              <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0;">La Rana Dorada Casco Antiguo</h3>
-              <span class="badge-flagship flex-shrink-0">Flagship</span>
-            </div>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Calle 9 con Calle Boquete (Esquina Casco Antiguo)
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Calle+9+con+Calle+Boquete+Casco+Antiguo+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Calle+9+con+Calle+Boquete+Casco+Antiguo+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+    <!-- Row 1: Flagship Hero -->
+    <div class="loc-row-hero">
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_casco_viejo.jpg" alt="La Rana Dorada Casco Antiguo">
+        <div class="loc-overlay loc-overlay-hero" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <span class="loc-badge loc-badge-flagship">Flagship</span>
+          <h2 class="loc-name loc-name-hero">La Rana Dorada<br>Casco Antiguo</h2>
+          <p class="loc-address loc-address-hero">Calle 9 con Calle Boquete (Esquina Casco Antiguo)</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Calle+9+con+Calle+Boquete+Casco+Antiguo+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Calle+9+con+Calle+Boquete+Casco+Antiguo+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Vía Argentina -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_via_argentina.png" alt="La Rana Dorada Vía Argentina" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Vía Argentina</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Vía Argentina 20, frente al Parque Andrés Bello, El Cangrejo
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Via+Argentina+20+El+Cangrejo+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Via+Argentina+20+El+Cangrejo+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Marbella -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Marbella</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Calle 54 Este, Plaza La Riviera
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Calle+54+Este+Plaza+La+Riviera+Marbella+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Calle+54+Este+Plaza+La+Riviera+Marbella+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
 
-    <!-- ── Zona: Este / Financiera ── -->
-    <div class="zone-title">Este / Financiera</div>
-    <div class="row g-4 mb-5">
-
-      <!-- San Francisco -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_san_francisco.png" alt="La Rana Dorada San Francisco" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada San Francisco</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Plaza SF 69, Calle 69 Este
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Plaza+SF+69+Calle+69+Este+San+Francisco+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Plaza+SF+69+Calle+69+Este+San+Francisco+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+    <!-- Row 2: Two Columns -->
+    <div class="loc-row-2col">
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_via_argentina.png" alt="La Rana Dorada Vía Argentina">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-lg">Vía Argentina</h3>
+          <p class="loc-address">Vía Argentina 20, frente al Parque Andrés Bello, El Cangrejo</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Via+Argentina+20+El+Cangrejo+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Via+Argentina+20+El+Cangrejo+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Costa del Este -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_costa_del_este.png" alt="La Rana Dorada Costa del Este" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Costa del Este</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Centro Comercial Downtown Plaza
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Downtown+Plaza+Costa+del+Este+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Downtown+Plaza+Costa+del+Este+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+      </article>
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_san_francisco.png" alt="La Rana Dorada San Francisco">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-lg">San Francisco</h3>
+          <p class="loc-address">Plaza SF 69, Calle 69 Este</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Plaza+SF+69+Calle+69+Este+San+Francisco+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Plaza+SF+69+Calle+69+Este+San+Francisco+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
+      </article>
     </div>
 
-    <!-- ── Zona: Norte / Canal ── -->
-    <div class="zone-title">Norte / Canal</div>
-    <div class="row g-4 mb-5">
-
-      <!-- Centennial -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_condado_del_rey.png" alt="La Rana Dorada Centennial" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Centennial</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Plaza Caminos de Centenial, Local 1, Condado del Rey
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Plaza+Caminos+de+Centenial+Condado+del+Rey+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Plaza+Caminos+de+Centenial+Condado+del+Rey+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+    <!-- Row 3: Three Columns -->
+    <div class="loc-row-3col">
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_costa_del_este.png" alt="La Rana Dorada Costa del Este">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-md">Costa del Este</h3>
+          <p class="loc-address">Centro Comercial Downtown Plaza</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Downtown+Plaza+Costa+del+Este+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Downtown+Plaza+Costa+del+Este+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Clayton -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_clayton.png" alt="La Rana Dorada Clayton" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Clayton</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Clayton Plaza, Vía principal hacia el Hospital
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Clayton+Plaza+Panama+City" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Clayton+Plaza+Panama+City" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+      </article>
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_condado_del_rey.png" alt="La Rana Dorada Condado del Rey">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-md">Condado del Rey</h3>
+          <p class="loc-address">Plaza Caminos de Centenial, Local 1, Condado del Rey</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Plaza+Caminos+de+Centenial+Condado+del+Rey+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Plaza+Caminos+de+Centenial+Condado+del+Rey+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Brisas del Golf -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Brisas del Golf</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Avenida C Norte con Calle 29, San Miguelito
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Avenida+C+Norte+Calle+29+San+Miguelito+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Avenida+C+Norte+Calle+29+San+Miguelito+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+      </article>
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_clayton.png" alt="La Rana Dorada Clayton">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-md">Clayton</h3>
+          <p class="loc-address">Clayton Plaza, Vía principal hacia el Hospital</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Clayton+Plaza+Panama+City" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Clayton+Plaza+Panama+City" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Tap Room (Fábrica) -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div class="local-card-body">
-            <div class="d-flex align-items-start justify-content-between gap-2 mb-2">
-              <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0;">La Rana Dorada Tap Room (Fábrica)</h3>
-              <span class="badge-taproom flex-shrink-0">Tap Room</span>
-            </div>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Av. Juan Pablo II con Calle C, Urb. Industrial La Locería
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Av.+Juan+Pablo+II+Calle+C+Loceria+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Av.+Juan+Pablo+II+Calle+C+Loceria+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
 
-    <!-- ── Zona: Panamá Oeste ── -->
-    <div class="zone-title">Panamá Oeste</div>
-    <div class="row g-4 mb-5">
-
-      <!-- Costa Verde -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_costa_verde.png" alt="La Rana Dorada Costa Verde" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Costa Verde</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Boulevard Costa Verde, La Chorrera
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Boulevard+Costa+Verde+La+Chorrera+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Boulevard+Costa+Verde+La+Chorrera+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+    <!-- Row 4: Asymmetric 60/40 -->
+    <div class="loc-row-asymmetric">
+      <article class="loc-panel" style="height:100%;flex:0 0 60%;max-width:60%;">
+        <img src="img/local_costa_verde.png" alt="La Rana Dorada Costa Verde">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-md">Costa Verde</h3>
+          <p class="loc-address">Boulevard Costa Verde, La Chorrera</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Boulevard+Costa+Verde+La+Chorrera+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Boulevard+Costa+Verde+La+Chorrera+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Coronado -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_coronado.png" alt="La Rana Dorada Coronado" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <div class="d-flex align-items-start justify-content-between gap-2 mb-2">
-              <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0;">La Rana Dorada Coronado</h3>
-              <span class="badge-nuevo flex-shrink-0">Nuevo</span>
-            </div>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Mi Plaza Coronado, Distrito de Chame
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Mi+Plaza+Coronado+Chame+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Mi+Plaza+Coronado+Chame+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+      </article>
+      <article class="loc-panel" style="height:100%;flex:0 0 40%;max-width:40%;">
+        <img src="img/local_coronado.png" alt="La Rana Dorada Coronado">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <span class="loc-badge loc-badge-nuevo">Nuevo</span>
+          <h3 class="loc-name loc-name-md">Coronado</h3>
+          <p class="loc-address">Mi Plaza Coronado, Distrito de Chame</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Mi+Plaza+Coronado+Chame+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Mi+Plaza+Coronado+Chame+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
+      </article>
     </div>
 
-    <!-- ── Zona: Interior del País ── -->
-    <div class="zone-title">Interior del País</div>
-    <div class="row g-4 mb-5">
-
-      <!-- Santiago -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_santiago.png" alt="La Rana Dorada Santiago" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Santiago</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              La Plaza (Plaza Banconal), Carretera Panamericana, Veraguas
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Plaza+Banconal+Carretera+Panamericana+Santiago+Veraguas+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Plaza+Banconal+Santiago+Veraguas+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+    <!-- Row 5: Interior -->
+    <div class="loc-row-2col loc-row-5">
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_santiago.png" alt="La Rana Dorada Santiago">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-md">Santiago · Veraguas</h3>
+          <p class="loc-meta">Interior del País</p>
+          <p class="loc-address">La Plaza (Plaza Banconal), Carretera Panamericana, Veraguas</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Plaza+Banconal+Carretera+Panamericana+Santiago+Veraguas+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Plaza+Banconal+Santiago+Veraguas+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
-
-      <!-- Chiriquí -->
-      <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="local-card w-100">
-          <div style="height:160px;overflow:hidden;border-radius:4px;margin-bottom:20px;background:#F2E7C9;">
-            <img src="img/local_chiriqui.png" alt="La Rana Dorada Chiriquí" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="local-card-body">
-            <h3 class="font-news fst-italic fw-bold" style="font-size:20px;color:var(--oscuro);line-height:1.2;margin:0 0 8px;">La Rana Dorada Chiriquí</h3>
-            <p class="font-jakarta" style="font-size:14px;color:rgba(28,26,23,0.55);margin-top:8px;line-height:1.6;">
-              Design Plaza, Local 41, Ciudad de David, Chiriquí
-            </p>
-          </div>
-          <div class="local-card-footer">
-            <a href="https://www.google.com/maps/search/Design+Plaza+Local+41+David+Chiriqui+Panama" target="_blank" class="local-btn-maps">
-              <i class="bi bi-geo-alt me-1"></i>Maps
-            </a>
-            <a href="https://waze.com/ul?q=Design+Plaza+David+Chiriqui+Panama" target="_blank" class="local-btn-waze">
-              <i class="bi bi-signpost me-1"></i>Waze
-            </a>
+      </article>
+      <article class="loc-panel" style="height:100%;">
+        <img src="img/local_chiriqui.png" alt="La Rana Dorada Chiriquí">
+        <div class="loc-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);">
+          <h3 class="loc-name loc-name-md">Chiriquí · David</h3>
+          <p class="loc-meta">Interior del País</p>
+          <p class="loc-address">Design Plaza, Local 41, Ciudad de David, Chiriquí</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Design+Plaza+Local+41+David+Chiriqui+Panama" target="_blank" class="loc-btn"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Design+Plaza+David+Chiriqui+Panama" target="_blank" class="loc-btn"><i class="bi bi-signpost me-1"></i>Waze</a>
           </div>
         </div>
-      </div>
+      </article>
     </div>
+
+    <!-- No photo locations strip -->
+    <section class="loc-strip">
+      <div class="loc-row-strip">
+        <article class="loc-strip-item">
+          <h3 class="loc-name loc-name-strip">Marbella</h3>
+          <p class="loc-address-strip">Calle 54 Este, Plaza La Riviera</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Calle+54+Este+Plaza+La+Riviera+Marbella+Panama" target="_blank" class="loc-btn loc-btn-small"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Calle+54+Este+Plaza+La+Riviera+Marbella+Panama" target="_blank" class="loc-btn loc-btn-small"><i class="bi bi-signpost me-1"></i>Waze</a>
+          </div>
+        </article>
+        <article class="loc-strip-item">
+          <h3 class="loc-name loc-name-strip">Brisas del Golf</h3>
+          <p class="loc-address-strip">Avenida C Norte con Calle 29, San Miguelito</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Avenida+C+Norte+Calle+29+San+Miguelito+Panama" target="_blank" class="loc-btn loc-btn-small"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Avenida+C+Norte+Calle+29+San+Miguelito+Panama" target="_blank" class="loc-btn loc-btn-small"><i class="bi bi-signpost me-1"></i>Waze</a>
+          </div>
+        </article>
+        <article class="loc-strip-item">
+          <span class="loc-badge loc-badge-tap">Tap Room</span>
+          <h3 class="loc-name loc-name-strip">Tap Room (Fábrica)</h3>
+          <p class="loc-address-strip">Av. Juan Pablo II con Calle C, Urb. Industrial La Locería</p>
+          <div class="loc-btn-row">
+            <a href="https://www.google.com/maps/search/Av.+Juan+Pablo+II+Calle+C+Loceria+Panama" target="_blank" class="loc-btn loc-btn-small"><i class="bi bi-geo-alt me-1"></i>Maps</a>
+            <a href="https://waze.com/ul?q=Av.+Juan+Pablo+II+Calle+C+Loceria+Panama" target="_blank" class="loc-btn loc-btn-small"><i class="bi bi-signpost me-1"></i>Waze</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
   </main>
 
