@@ -18,19 +18,12 @@
 
     .soda-hero {
       background: var(--soda-cyan);
+      min-height: 90vh;
       padding: 140px 8% 80px;
       position: relative;
       overflow: hidden;
-    }
-
-    .soda-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle at 20px 20px, rgba(255,255,255,0.12) 2px, transparent 2px);
-      background-size: 36px 36px;
-      opacity: 0.35;
-      pointer-events: none;
+      display: flex;
+      align-items: center;
     }
 
     .soda-section {
@@ -39,14 +32,15 @@
     }
 
     .soda-card {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1.5px solid rgba(0,0,0,0.07);
-      background: white;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+      border-radius: 16px;
+      padding-top: 140px;
+      position: relative;
+      margin-top: 100px;
+      transition: transform 0.25s ease;
+    }
+
+    .soda-card:hover {
+      transform: translateY(-8px);
     }
 
     .about-strip {
@@ -81,7 +75,7 @@
     <div class="container-fluid px-4">
       <a class="navbar-brand font-news fw-bold fst-italic" href="index.html"
          style="color:var(--crema); font-size:1.4rem; letter-spacing:-0.01em;">
-        La Rana Dorada
+        <img src="img/logo.png" alt="La Rana Dorada" style="height:36px;width:auto;">
       </a>
       <button class="navbar-toggler border-0 shadow-none" type="button"
               data-bs-toggle="collapse" data-bs-target="#navMain"
@@ -117,344 +111,483 @@
     </div>
   </nav>
 
-  <!-- SECTION 1 - HERO -->
+  <!-- ══ SECTION 1 — HERO ══ -->
   <section class="soda-hero">
-    <div class="container-fluid p-0 position-relative" style="z-index:1;">
+    <div class="container-fluid" style="max-width:1400px; margin:0 auto; position:relative; z-index:1;">
       <div class="row align-items-center g-5">
+        <!-- LEFT COLUMN -->
         <div class="col-12 col-lg-6">
           <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
                        letter-spacing:0.25em; text-transform:uppercase;
-                       color:rgba(255,255,255,0.65); display:block; margin-bottom:16px;">
-            BAJO LA RANA DORADA · PANAMÁ SPARKLING DRINKS
+                       color:rgba(255,255,255,0.6); display:block; margin-bottom:16px;">
+            PANAMA SPARKLING DRINKS
           </span>
           <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
-                     font-size:clamp(3.5rem,8vw,6rem); color:white; line-height:0.95;
-                     letter-spacing:-0.02em; margin-bottom:24px;">
+                     font-size:clamp(4rem,10vw,7rem); color:white; line-height:0.9;
+                     letter-spacing:-0.03em; margin-bottom:24px;">
             SODA<br>BAHÍA
           </h1>
           <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem;
                     color:rgba(255,255,255,0.8); line-height:1.7; max-width:400px;
-                    margin-bottom:32px;">
-            Primera soda artesanal de Panamá. Fruta 100% real,
-            sin azúcar añadida, sin artificiales.
-            ¡Más que una soda, es fruta hasta la última gota!
+                    margin-bottom:36px;">
+            Primera soda artesanal de Panamá. Fruta 100% real, sin azúcar añadida. ¡Más que una soda, es fruta hasta la última gota!
           </p>
           <a href="#sabores"
              style="display:inline-block; background:white; color:var(--soda-cyan);
                     font-family:'Space Grotesk',sans-serif; font-weight:700;
                     font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase;
-                    padding:16px 32px; border-radius:3px; text-decoration:none;">
+                    padding:16px 36px; border-radius:3px; text-decoration:none;
+                    border:none; cursor:pointer;">
             VER SABORES →
           </a>
         </div>
-        <div class="col-12 col-lg-5 offset-lg-1 text-center">
-          <div style="width:180px; height:320px; margin:0 auto;
-                      background:linear-gradient(170deg, #1AAFC0 0%, #29C4D8 40%, #5DD6E4 100%);
-                      border-radius:20px; position:relative; overflow:hidden;
-                      box-shadow: 0 24px 48px rgba(0,0,0,0.15);">
-            <div style="position:absolute; bottom:0; left:-10px; right:-10px; height:120px;
-                        background:rgba(255,255,255,0.08);
-                        clip-path: ellipse(55% 80% at 50% 100%);"></div>
-            <div style="position:absolute; inset:0; display:flex; flex-direction:column;
-                        align-items:center; justify-content:center; gap:8px; padding:24px;">
-              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
-                           letter-spacing:0.3em; text-transform:uppercase;
-                           color:rgba(255,255,255,0.5);">PANAMA SPARKLING</span>
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
-                           font-size:1.6rem; color:white; text-align:center;
-                           line-height:1; letter-spacing:-0.02em;">SODA<br>BAHÍA</span>
-              <div style="width:48px; height:1px; background:rgba(255,255,255,0.3); margin:4px 0;"></div>
-              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                           letter-spacing:0.2em; text-transform:uppercase;
-                           color:rgba(255,255,255,0.6);">355 ML</span>
-            </div>
-          </div>
+
+        <!-- RIGHT COLUMN — Floating can -->
+        <div class="col-12 col-lg-6" style="display:flex; justify-content:center; align-items:center; padding:40px 0;">
+          <img src="img/SB_PEPIMON.png" alt="Soda Bahía Pepimón"
+               style="width:min(320px,70%); height:auto;
+                      display:block;
+                      transform:rotate(-8deg);
+                      filter:drop-shadow(0 24px 40px rgba(0,0,0,0.2));">
         </div>
       </div>
     </div>
-    <div style="position:absolute; bottom:0; left:0; right:0; height:60px;
-                background:white;
-                clip-path: ellipse(55% 100% at 50% 100%);"></div>
+
+    <!-- Wave at bottom -->
+    <div style="position:absolute; bottom:-1px; left:0; right:0; 
+                height:80px; background:white;
+                clip-path:ellipse(55% 100% at 50% 100%);"></div>
   </section>
 
-  <!-- SECTION 2 - SABORES -->
+  <!-- ══ SECTION 2 — FLAVOR CARDS ══ -->
   <section id="sabores" class="soda-section">
-    <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                 letter-spacing:0.25em; text-transform:uppercase;
-                 color:var(--soda-cyan);">NUESTROS SABORES</span>
-    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
-               font-size:clamp(2rem,4vw,3rem); color:var(--oscuro); margin-top:8px;">
-      Cuatro sabores.<br>Un solo origen.
-    </h2>
-
-    <div class="row g-4 mt-5">
-      <div class="col-12 col-sm-6 col-xl-3">
-        <div class="soda-card">
-          <div style="height:180px; background:#29C4D8; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">PEPIMÓN</span>
-            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
-                        background:white;
-                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
-          </div>
-          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
-            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
-              Limón con toque de pepino e infusión de hierbabuena.
-              Mega refrescante y ligera.
-            </p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Limón, pepino · Especias: Hierbabuena</p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 20 kcal</p>
-
-            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">DULZOR</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
-                </div>
-              </div>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                </div>
-              </div>
-              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
-              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
-                           letter-spacing:0.12em; text-transform:uppercase;
-                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
-              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
-                           color:var(--oscuro);">Perfecta con tequila, mezcal, ron blanco y ginebra</span>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
-              <button style="background:var(--soda-cyan); color:white;
-                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
-                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
-                AÑADIR →
-              </button>
-            </div>
-          </div>
-        </div>
+    <div class="container-fluid" style="max-width:1400px; margin:0 auto;">
+      <div class="text-center mb-5">
+        <h2 class="font-grotesk fw-bold" style="font-size:clamp(2rem,5vw,3.5rem); 
+                                                 color:var(--oscuro); letter-spacing:-0.02em;
+                                                 margin-bottom:12px;">
+          Cinco sabores
+        </h2>
+        <p class="font-jakarta" style="font-size:0.95rem; color:rgba(28,26,23,0.55);
+                                       max-width:500px; margin:0 auto;">
+          Cada lata de Soda Bahía combina frutas panameñas reales con una carbonatación perfecta.
+        </p>
       </div>
 
-      <div class="col-12 col-sm-6 col-xl-3">
-        <div class="soda-card">
-          <div style="height:180px; background:#F5A623; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">GINGURÚ</span>
-            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
-                        background:white;
-                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
-          </div>
-          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
-            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
-              Ginger ale panameña. Balance perfecto de piña tropical
-              con picor suave de jengibre.
-            </p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Piña, naranja, limón · Especias: Jengibre, cardamomo, cilantro, enebro</p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 100 kcal</p>
+      <div class="row g-4 mt-5">
+        <!-- CARD 1: PEPIMÓN -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="soda-card" style="background:#29C4D8; overflow:visible;">
+            <img src="img/SB_PEPIMON.png" alt="Pepimón"
+                 style="position:absolute; top:-90px; left:50%;
+                        transform:translateX(-50%) rotate(-6deg);
+                        width:180px; height:auto;
+                        filter:drop-shadow(0 16px 24px rgba(0,0,0,0.25));
+                        z-index:2;">
+            <div style="padding:0 24px 28px;">
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                         font-size:1.6rem; color:white; letter-spacing:-0.02em;
+                         margin-bottom:8px;">Pepimón</h3>
+              <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem;
+                        color:rgba(255,255,255,0.8); line-height:1.6; 
+                        margin-bottom:16px;">
+                Limón con toque de pepino e infusión de hierbabuena. Mega refrescante y ligera.
+              </p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:4px;">
+                FRUTAS: Limón, pepino · ESPECIAS: Hierbabuena</p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:20px;">
+                CALORÍAS: 20 KCAL</p>
 
-            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">DULZOR</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+              <div style="background:rgba(255,255,255,0.15); border-radius:10px; 
+                          padding:16px; margin-bottom:20px; backdrop-filter:blur(4px);">
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:10px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">DULZOR</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:14px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">TE REFRESCA</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                  </div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,0.15); 
+                            padding-top:12px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                               letter-spacing:0.12em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.5);">MIXOLOGÍA · </span>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                               color:rgba(255,255,255,0.85);">Perfecta con tequila, mezcal, ron blanco</span>
                 </div>
               </div>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                             font-size:0.9rem; color:white;">$1.75 · 355ml</span>
+                <button style="background:white; color:#29C4D8; border:none;
+                               font-family:'Space Grotesk',sans-serif; font-weight:700;
+                               font-size:0.65rem; letter-spacing:0.15em; 
+                               text-transform:uppercase; padding:10px 18px; 
+                               border-radius:3px; cursor:pointer;">
+                  AÑADIR →
+                </button>
               </div>
-              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
-              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
-                           letter-spacing:0.12em; text-transform:uppercase;
-                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
-              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
-                           color:var(--oscuro);">Ideal con ron añejo, whisky o sola sobre hielo</span>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
-              <button style="background:var(--soda-cyan); color:white;
-                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
-                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
-                AÑADIR →
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-xl-3">
-        <div class="soda-card">
-          <div style="height:180px; background:#FF7B3D; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">MANGO PASIÓN</span>
-            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
-                        background:white;
-                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
-          </div>
-          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
-            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
-              Combinación tropical de mango y maracuyá.
-              Dulce, cítrico y coloreado de optimismo.
-            </p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Mango, maracuyá, limón · Especias: Cúrcuma</p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 85 kcal</p>
-
-            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">DULZOR</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                </div>
-              </div>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
-                </div>
-              </div>
-              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
-              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
-                           letter-spacing:0.12em; text-transform:uppercase;
-                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
-              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
-                           color:var(--oscuro);">Perfecta con ron blanco, vodka o cava</span>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
-              <button style="background:var(--soda-cyan); color:white;
-                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
-                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
-                AÑADIR →
-              </button>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12 col-sm-6 col-xl-3">
-        <div class="soda-card">
-          <div style="height:180px; background:#3D2B1F; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:white; letter-spacing:-0.01em;">MANSA COLA</span>
-            <div style="position:absolute; bottom:0; left:-5%; right:-5%; height:40px;
-                        background:white;
-                        clip-path: ellipse(55% 100% at 50% 100%);"></div>
-          </div>
-          <div style="padding:20px 20px 24px; display:flex; flex-direction:column; flex:1;">
-            <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:rgba(28,26,23,0.6); line-height:1.6; margin:0;">
-              La primera cola artesanal panameña. Sin cafeína,
-              sin azúcar añadida. Con extracto de nuez de cola y cítricos.
-            </p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:12px 0 0;">🍋 FRUTAS: Limón, naranja, jugo de manzana · Extracto: Nuez de cola</p>
-            <p style="font-family:'Space Grotesk',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:0.1em;
-                      color:rgba(28,26,23,0.35); margin:8px 0 0;">🔥 CALORÍAS: 20 kcal</p>
+        <!-- CARD 2: GINGURÚ -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="soda-card" style="background:#E8960A; overflow:visible;">
+            <img src="img/SB_GINGURU.png" alt="Gingurú"
+                 style="position:absolute; top:-90px; left:50%;
+                        transform:translateX(-50%) rotate(5deg);
+                        width:180px; height:auto;
+                        filter:drop-shadow(0 16px 24px rgba(0,0,0,0.25));
+                        z-index:2;">
+            <div style="padding:0 24px 28px;">
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                         font-size:1.6rem; color:white; letter-spacing:-0.02em;
+                         margin-bottom:8px;">Gingurú</h3>
+              <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem;
+                        color:rgba(255,255,255,0.8); line-height:1.6; 
+                        margin-bottom:16px;">
+                Ginger ale panameña. Piña tropical con picor suave de jengibre.
+              </p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:4px;">
+                FRUTAS: Piña, naranja, limón</p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:20px;">
+                CALORÍAS: 100 KCAL</p>
 
-            <div style="margin-top:16px; background:var(--soda-light); border-radius:8px; padding:16px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">DULZOR</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-amber);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
+              <div style="background:rgba(255,255,255,0.15); border-radius:10px; 
+                          padding:16px; margin-bottom:20px; backdrop-filter:blur(4px);">
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:10px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">DULZOR</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:14px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">TE REFRESCA</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                  </div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,0.15); 
+                            padding-top:12px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                               letter-spacing:0.12em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.5);">MIXOLOGÍA · </span>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                               color:rgba(255,255,255,0.85);">Ideal con ron añejo o whisky</span>
                 </div>
               </div>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                             letter-spacing:0.15em; text-transform:uppercase;
-                             color:rgba(28,26,23,0.45);">TE REFRESCA</span>
-                <div style="display:flex; gap:4px;">
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:var(--soda-cyan);"></span>
-                  <span style="width:10px; height:10px; border-radius:50%; background:rgba(28,26,23,0.12);"></span>
-                </div>
-              </div>
-              <div style="height:1px; background:rgba(28,26,23,0.08); margin:10px 0;"></div>
-              <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
-                           letter-spacing:0.12em; text-transform:uppercase;
-                           color:rgba(28,26,23,0.35);">MIXOLOGÍA · </span>
-              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
-                           color:var(--oscuro);">Perfecta con ron, whisky o solo sobre hielo</span>
-            </div>
 
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:var(--oscuro);">$1.75 · 355ml</span>
-              <button style="background:var(--soda-cyan); color:white;
-                             font-family:'Space Grotesk',sans-serif; font-size:8px; text-transform:uppercase;
-                             letter-spacing:0.15em; padding:8px 16px; border-radius:3px; border:none;">
-                AÑADIR →
-              </button>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                             font-size:0.9rem; color:white;">$1.75 · 355ml</span>
+                <button style="background:white; color:#E8960A; border:none;
+                               font-family:'Space Grotesk',sans-serif; font-weight:700;
+                               font-size:0.65rem; letter-spacing:0.15em; 
+                               text-transform:uppercase; padding:10px 18px; 
+                               border-radius:3px; cursor:pointer;">
+                  AÑADIR →
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- CARD 3: MANGO PASIÓN -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="soda-card" style="background:#F06030; overflow:visible;">
+            <img src="img/SB_Mango_Pasion.png" alt="Mango Pasión"
+                 style="position:absolute; top:-90px; left:50%;
+                        transform:translateX(-50%) rotate(-4deg);
+                        width:180px; height:auto;
+                        filter:drop-shadow(0 16px 24px rgba(0,0,0,0.25));
+                        z-index:2;">
+            <div style="padding:0 24px 28px;">
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                         font-size:1.6rem; color:white; letter-spacing:-0.02em;
+                         margin-bottom:8px;">Mango Pasión</h3>
+              <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem;
+                        color:rgba(255,255,255,0.8); line-height:1.6; 
+                        margin-bottom:16px;">
+                Mango y maracuyá. Dulce, cítrico y coloreado de optimismo.
+              </p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:4px;">
+                FRUTAS: Mango, maracuyá, limón · ESPECIAS: Cúrcuma</p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:20px;">
+                CALORÍAS: 85 KCAL</p>
+
+              <div style="background:rgba(255,255,255,0.15); border-radius:10px; 
+                          padding:16px; margin-bottom:20px; backdrop-filter:blur(4px);">
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:10px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">DULZOR</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:14px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">TE REFRESCA</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                  </div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,0.15); 
+                            padding-top:12px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                               letter-spacing:0.12em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.5);">MIXOLOGÍA · </span>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                               color:rgba(255,255,255,0.85);">Perfecta con ron blanco o vodka</span>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                             font-size:0.9rem; color:white;">$1.75 · 355ml</span>
+                <button style="background:white; color:#F06030; border:none;
+                               font-family:'Space Grotesk',sans-serif; font-weight:700;
+                               font-size:0.65rem; letter-spacing:0.15em; 
+                               text-transform:uppercase; padding:10px 18px; 
+                               border-radius:3px; cursor:pointer;">
+                  AÑADIR →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: MANSA COLA -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="soda-card" style="background:#2C1E14; overflow:visible;">
+            <img src="img/SB_MANSA_COLA.png" alt="Mansa Cola"
+                 style="position:absolute; top:-90px; left:50%;
+                        transform:translateX(-50%) rotate(6deg);
+                        width:180px; height:auto;
+                        filter:drop-shadow(0 16px 24px rgba(0,0,0,0.25));
+                        z-index:2;">
+            <div style="padding:0 24px 28px;">
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                         font-size:1.6rem; color:white; letter-spacing:-0.02em;
+                         margin-bottom:8px;">Mansa Cola</h3>
+              <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem;
+                        color:rgba(255,255,255,0.8); line-height:1.6; 
+                        margin-bottom:16px;">
+                La primera cola artesanal panameña. Sin cafeína ni azúcar añadida.
+              </p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:4px;">
+                FRUTAS: Limón, naranja, manzana</p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:20px;">
+                CALORÍAS: 20 KCAL</p>
+
+              <div style="background:rgba(255,255,255,0.15); border-radius:10px; 
+                          padding:16px; margin-bottom:20px; backdrop-filter:blur(4px);">
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:10px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">DULZOR</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:14px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">TE REFRESCA</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25);"></span>
+                  </div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,0.15); 
+                            padding-top:12px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                               letter-spacing:0.12em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.5);">MIXOLOGÍA · </span>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                               color:rgba(255,255,255,0.85);">Perfecta con ron o whisky</span>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                             font-size:0.9rem; color:white;">$1.75 · 355ml</span>
+                <button style="background:white; color:#2C1E14; border:none;
+                               font-family:'Space Grotesk',sans-serif; font-weight:700;
+                               font-size:0.65rem; letter-spacing:0.15em; 
+                               text-transform:uppercase; padding:10px 18px; 
+                               border-radius:3px; cursor:pointer;">
+                  AÑADIR →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: NAPI COLADA -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="soda-card" style="background:#5DB84A; overflow:visible;">
+            <img src="img/SB_NAPI_COLADA.png" alt="Napi Colada"
+                 style="position:absolute; top:-90px; left:50%;
+                        transform:translateX(-50%) rotate(-5deg);
+                        width:180px; height:auto;
+                        filter:drop-shadow(0 16px 24px rgba(0,0,0,0.25));
+                        z-index:2;">
+            <div style="padding:0 24px 28px;">
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                         font-size:1.6rem; color:white; letter-spacing:-0.02em;
+                         margin-bottom:8px;">Napi Colada</h3>
+              <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem;
+                        color:rgba(255,255,255,0.8); line-height:1.6; 
+                        margin-bottom:16px;">
+                Piña con coco. El sabor del verano panameño en lata.
+              </p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:4px;">
+                FRUTAS: Piña, coco</p>
+              <p style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                        letter-spacing:0.1em; text-transform:uppercase;
+                        color:rgba(255,255,255,0.55); margin-bottom:20px;">
+                CALORÍAS: 90 KCAL</p>
+
+              <div style="background:rgba(255,255,255,0.15); border-radius:10px; 
+                          padding:16px; margin-bottom:20px; backdrop-filter:blur(4px);">
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:10px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">DULZOR</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; 
+                            align-items:center; margin-bottom:14px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                               letter-spacing:0.15em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.65);">TE REFRESCA</span>
+                  <div style="display:flex; gap:5px;">
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                    <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.9);"></span>
+                  </div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,0.15); 
+                            padding-top:12px;">
+                  <span style="font-family:'Space Grotesk',sans-serif; font-size:0.55rem;
+                               letter-spacing:0.12em; text-transform:uppercase;
+                               color:rgba(255,255,255,0.5);">MIXOLOGÍA · </span>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.8rem;
+                               color:rgba(255,255,255,0.85);">Perfecta con ron blanco</span>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                             font-size:0.9rem; color:white;">$1.75 · 355ml</span>
+                <button style="background:white; color:#5DB84A; border:none;
+                               font-family:'Space Grotesk',sans-serif; font-weight:700;
+                               font-size:0.65rem; letter-spacing:0.15em; 
+                               text-transform:uppercase; padding:10px 18px; 
+                               border-radius:3px; cursor:pointer;">
+                  AÑADIR →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3 - ABOUT STRIP -->
+  <!-- ══ SECTION 3 — ABOUT STRIP ══ -->
   <section class="about-strip">
-    <div class="row align-items-center g-4">
-      <div class="col-12 col-lg-6">
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
-                     letter-spacing:0.22em; text-transform:uppercase;
-                     color:rgba(255,255,255,0.55); display:block; margin-bottom:12px;">
-          SIN AZÚCAR AÑADIDA · SIN ARTIFICIALES
-        </span>
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
-                   font-size:clamp(1.8rem,3.5vw,2.8rem); color:white; line-height:1.05;">
-          Hecha con los mismos<br>estándares de la cervecería.
-        </h3>
-      </div>
-      <div class="col-12 col-lg-5 offset-lg-1">
-        <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem;
-                  color:rgba(255,255,255,0.8); line-height:1.8;">
-          Soda Bahía nació en las mismas instalaciones de La Rana Dorada.
-          Usamos frutas panameñas reales, agua carbonatada natural y
-          nada más. Primera soda artesanal hecha a mano en Panamá.
-        </p>
-        <a href="cerveceria.html"
-           style="display:inline-block; margin-top:24px;
-                  border:1.5px solid rgba(255,255,255,0.5); color:white;
-                  font-family:'Space Grotesk',sans-serif; font-weight:700;
-                  font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase;
-                  padding:14px 28px; border-radius:3px; text-decoration:none;">
-          CONOCE LA CERVECERÍA →
-        </a>
+    <div class="container-fluid" style="max-width:1400px; margin:0 auto;">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6">
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:0.6rem;
+                       letter-spacing:0.25em; text-transform:uppercase;
+                       color:rgba(255,255,255,0.6); display:block; margin-bottom:16px;">
+            SIN AZÚCAR AÑADIDA · 100% FRUTAS REALES
+          </span>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700;
+                     font-size:clamp(1.8rem,3.5vw,2.8rem); color:white; line-height:1.05;">
+            Hecha con los mismos<br>estándares de la cervecería.
+          </h3>
+        </div>
+        <div class="col-12 col-lg-6">
+          <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem;
+                    color:rgba(255,255,255,0.8); line-height:1.8;">
+            Soda Bahía nació en las mismas instalaciones de La Rana Dorada. Usamos frutas panameñas reales, agua carbonatada natural y nada más. Primera soda artesanal hecha a mano en Panamá.
+          </p>
+          <a href="cerveceria.html"
+             style="display:inline-block; margin-top:24px;
+                    border:1.5px solid rgba(255,255,255,0.5); color:white;
+                    font-family:'Space Grotesk',sans-serif; font-weight:700;
+                    font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase;
+                    padding:14px 28px; border-radius:3px; text-decoration:none;">
+            CONOCE LA CERVECERÍA →
+          </a>
+        </div>
       </div>
     </div>
   </section>
