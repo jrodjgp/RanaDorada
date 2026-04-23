@@ -9,58 +9,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── Stat bars that animate on load ── */
-    .stat-bar-track {
-      width: 100%;
-      height: 6px;
-      background: #D4C5A0;
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .stat-bar-fill {
-      height: 100%;
-      background: var(--oro);
-      border-radius: 3px;
-      width: 0%;
-      transition: width 1.2s ease;
-    }
-
-    /* ── Review carousel (CSS-only version) ── */
-    .review-slide { display: none; }
-    .review-slide.active { display: block; }
-
-    /* ── Suggested card hover ── */
-    .suggested-card {
-      border: 1px solid rgba(232,162,0,0.4);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      background: var(--crema);
-    }
-    .suggested-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-      border-color: var(--oro);
-    }
-
-    @media (max-width: 768px) {
-      .detalle-hero {
-        flex-direction: column;
-      }
-      .detalle-photo {
-        position: relative !important;
-        width: 100% !important;
-        height: 60vw !important;
-        min-height: 260px;
-      }
-      .detalle-info {
-        width: 100% !important;
-        padding: 48px 6% 64px !important;
-      }
-    }
-  </style>
 </head>
 <body style="background:var(--crema);">
 
